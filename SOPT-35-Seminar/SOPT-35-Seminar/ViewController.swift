@@ -75,9 +75,11 @@ class ViewController: UIViewController {
     
     private func setUI() {
         self.view.backgroundColor = .white
-        [titleLabel, titleTextField, contentTextView, nextButton, changeModeButton].forEach {
-            self.view.addSubview($0)
-        }
+//        [titleLabel, titleTextField, contentTextView, nextButton, changeModeButton].forEach {
+//            self.view.addSubview($0)
+//        }
+        // UIView+ 적용
+        view.addSubviews(titleLabel, titleTextField, contentTextView, nextButton, changeModeButton)
     }
     
     @objc func nextButtonTapped() {
@@ -87,6 +89,7 @@ class ViewController: UIViewController {
     private func transitionToNextViewController() {
         let nextViewController = DetailViewController()
         
+        //guard let으로 옵셔널 바인딩
         guard let title = titleTextField.text,
                 let content = contentTextView.text
         else { return }
@@ -98,6 +101,7 @@ class ViewController: UIViewController {
             self.present(nextViewController, animated: true)
         }
         
+//      if let으로 옵셔널 바인딩
 //        if let title = titleTextField.text, let content = contentTextView.text {
 //            nextViewController.dataBind(title: title, content: content)
 //        }
@@ -110,105 +114,3 @@ class ViewController: UIViewController {
 
 }
 
-//class ViewController: UIViewController {
-//  private let titleLabel: UILabel = {
-//    let label = UILabel()
-//    label.text = "카카오톡"
-//    label.font = .systemFont(ofSize: 16)
-//    return label
-//  }()
-//
-//  private let titleTextField: UITextField = {
-//    let textField = UITextField()
-//    textField.placeholder = "제목을 입력해주세요."
-//    textField.clearButtonMode = .whileEditing
-//    textField.layer.borderColor = UIColor.gray.cgColor
-//    textField.layer.borderWidth = 1
-//    return textField
-//  }()
-//
-//  private let contentTextView: UITextView = {
-//    let textView = UITextView()
-//    textView.font = .systemFont(ofSize: 14)
-//    textView.layer.borderColor = UIColor.gray.cgColor
-//    textView.layer.borderWidth = 1
-//    textView.layer.cornerRadius = 5
-//    return textView
-//  }()
-//
-//  private lazy var nextButton: UIButton = {
-//    let button = UIButton()
-//    button.setTitle("다음", for: .normal)
-//    button.backgroundColor = .tintColor
-//    button.setTitleColor(.white, for: .normal)
-//    return button
-//  }()
-//
-//  override func viewDidLoad() {
-//    super.viewDidLoad()
-//    setStyle()
-//    setUI()
-//    setLayout()
-//  }
-//
-//  private func setStyle() {
-//    self.view.backgroundColor = .white
-//  }
-//
-//  private func setUI() {
-//    [titleLabel, titleTextField, contentTextView, nextButton].forEach {
-//      $0.translatesAutoresizingMaskIntoConstraints = false
-//      self.view.addSubview($0)
-//    }
-//  }
-//
-//  private func setLayout() {
-//    NSLayoutConstraint.activate(
-//      [
-//        titleLabel.topAnchor.constraint(
-//          equalTo: view.safeAreaLayoutGuide.topAnchor,
-//          constant: 20
-//        ),
-//        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//
-//        titleTextField.topAnchor.constraint(
-//          equalTo: titleLabel.bottomAnchor,
-//          constant: 20
-//        ),
-//        titleTextField.leadingAnchor.constraint(
-//          equalTo: view.leadingAnchor,
-//          constant: 20
-//        ),
-//        titleTextField.trailingAnchor.constraint(
-//          equalTo: view.trailingAnchor,
-//          constant: -20
-//        ),
-//        titleTextField.heightAnchor.constraint(equalToConstant: 40),
-//
-//        contentTextView.topAnchor.constraint(
-//          equalTo: titleTextField.bottomAnchor,
-//          constant: 20
-//        ),
-//        contentTextView.leadingAnchor.constraint(
-//          equalTo: view.leadingAnchor,
-//          constant: 20
-//        ),
-//        contentTextView.trailingAnchor.constraint(
-//          equalTo: view.trailingAnchor,
-//          constant: -20
-//        ),
-//        contentTextView.heightAnchor.constraint(
-//          equalToConstant: 200
-//        ),
-//
-//        nextButton.topAnchor.constraint(
-//          equalTo: contentTextView.bottomAnchor,
-//          constant: 20
-//        ),
-//        nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//        nextButton.heightAnchor.constraint(equalToConstant: 50),
-//        nextButton.widthAnchor.constraint(equalToConstant: 100)
-//      ]
-//    )
-//  }
-//}

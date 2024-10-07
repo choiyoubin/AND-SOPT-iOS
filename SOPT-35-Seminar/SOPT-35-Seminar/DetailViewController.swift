@@ -60,9 +60,8 @@ class DetailViewController: UIViewController {
     }
     
     private func setUI() {
-        [titleLabel, contentLabel, backButton].forEach {
-            self.view.addSubview($0)
-        }
+        // UIView+ 적용
+        view.addSubviews(titleLabel, contentLabel, backButton)
     }
     
     func updateUI() {
