@@ -52,6 +52,15 @@ class ViewController: UIViewController {
         return button
     }()
     
+    private lazy var modeSwitch: UISwitch = {
+        let switcher = UISwitch(frame: CGRect(origin: CGPoint(x: UIScreen.main.bounds.width - 60, y: 100), size: CGSize(width: 50, height: 50)))
+        
+        switcher.isOn = true
+        
+        switcher.addTarget(self, action: #selector(changeButtonTapped), for: UIControl.Event.valueChanged)
+        return switcher
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -62,6 +71,7 @@ class ViewController: UIViewController {
     
     private func changeUI() {
         self.titleLabel.text = pushMode ? "네비게이션" : "모달"
+        self.modeSwitch.isOn = pushMode ? true : false
     }
     
     @objc func changeButtonTapped() {
@@ -79,7 +89,7 @@ class ViewController: UIViewController {
 //            self.view.addSubview($0)
 //        }
         // UIView+ 적용
-        view.addSubviews(titleLabel, titleTextField, contentTextView, nextButton, changeModeButton)
+        view.addSubviews(titleLabel, titleTextField, contentTextView, nextButton, changeModeButton, modeSwitch)
     }
     
     @objc func nextButtonTapped() {
