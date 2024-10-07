@@ -11,8 +11,9 @@ class ViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel(frame: CGRect(origin: CGPoint(x: 0, y: 100), size: CGSize(width: UIScreen.main.bounds.size.width, height: 50)))
         label.text = "네비게이션"
-        label.textAlignment = .center
         label.font = .systemFont(ofSize: 16)
+        //추가한 부분
+        label.textAlignment = .center
         return label
     }()
     
@@ -22,6 +23,8 @@ class ViewController: UIViewController {
         textField.clearButtonMode = .whileEditing
         textField.layer.borderColor = UIColor.gray.cgColor
         textField.layer.borderWidth = 1
+        // 추가한 부분
+        textField.textColor = .blue
         return textField
     }()
     
@@ -30,6 +33,8 @@ class ViewController: UIViewController {
         
         textView.layer.borderColor = UIColor.gray.cgColor
         textView.layer.borderWidth = 1
+        // 추가한 부분
+        textView.textColor = .red
         
         return textView
     }()
@@ -40,6 +45,9 @@ class ViewController: UIViewController {
         button.backgroundColor = .tintColor
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+        // 추가한 부분
+        button.layer.cornerRadius = 20
+        
         return button
     }()
 
