@@ -93,11 +93,11 @@ class ViewController: UIViewController {
     
     private func setUI() {
         self.view.backgroundColor = .white
-//        [titleLabel, titleTextField, contentTextView, nextButton, changeModeButton].forEach {
-//            self.view.addSubview($0)
-//        }
-        // UIView+ 적용
-        view.addSubviews(titleLabel, titleTextField, contentTextView, nextButton, changeModeButton, modeSwitch)
+        [titleLabel, titleTextField, contentTextView, nextButton, changeModeButton].forEach {
+            self.view.addSubview($0)
+        }
+        // UIView+ 적용 - 기존 VC제외 다른 VC에 오토레이아웃 적용 위해 UIView+변경 
+//        view.addSubviews(titleLabel, titleTextField, contentTextView, nextButton, changeModeButton, modeSwitch)
     }
     
     @objc func nextButtonTapped() {
