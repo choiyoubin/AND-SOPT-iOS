@@ -51,16 +51,6 @@ class DetailViewController: UIViewController {
         return textField
     }()
     
-//    private lazy var settingButton: UIButton = {
-//        let button = UIButton()
-//        button.setTitle("닉네임 설정", for: .normal)
-//        button.backgroundColor = .tintColor
-//        button.setTitleColor(.white, for: .normal)
-//        button.addTarget(self, action: #selector(settingButtonTapped), for: .touchUpInside)
-//
-//        return button
-//    }()
-    
     private var receivedTitle: String?
     private var receivedContent: String?
     var completionHandler: ((String) -> ())?
@@ -105,24 +95,26 @@ class DetailViewController: UIViewController {
     
 
     private func setLayout() {
-        titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -50).isActive = true
-        titleLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        NSLayoutConstraint.activate([
+        titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100),
+        titleLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
+        titleLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -50),
+        titleLabel.heightAnchor.constraint(equalToConstant: 50),
         
-        contentLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 300).isActive = true
-        contentLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 100).isActive = true
-        contentLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        contentLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 300),
+        contentLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 100),
+        contentLabel.heightAnchor.constraint(equalToConstant: 100),
         
-        backButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        backButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        backButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        backButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100).isActive = true
+        backButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+        backButton.widthAnchor.constraint(equalToConstant: 200),
+        backButton.heightAnchor.constraint(equalToConstant: 50),
+        backButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100),
         
-        nickNameTextField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 200).isActive = true
-        nickNameTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
-        nickNameTextField.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20).isActive = true
-        nickNameTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        nickNameTextField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 200),
+        nickNameTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
+        nickNameTextField.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+        nickNameTextField.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
 }
 
