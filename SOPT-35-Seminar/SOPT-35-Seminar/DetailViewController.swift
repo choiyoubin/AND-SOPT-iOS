@@ -15,7 +15,8 @@ class DetailViewController: UIViewController {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         label.textAlignment = .center
-        label.backgroundColor = .white
+        label.backgroundColor = .black
+        label.textColor = .white
         
         return label
     }()
@@ -25,7 +26,8 @@ class DetailViewController: UIViewController {
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.backgroundColor = .white
+        label.textColor = .white
+        label.backgroundColor = .black
         return label
     }()
 
@@ -42,10 +44,10 @@ class DetailViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "닉네임을 입력해주세요."
         textField.clearButtonMode = .whileEditing
-        textField.layer.borderColor = UIColor.white.cgColor
+        textField.layer.borderColor = UIColor.black.cgColor
         textField.layer.borderWidth = 1
         // 추가한 부분
-        textField.textColor = .white
+        textField.textColor = .black
         return textField
     }()
     
@@ -61,10 +63,12 @@ class DetailViewController: UIViewController {
     
     private var receivedTitle: String?
     private var receivedContent: String?
+    var completionHandler: ((String) -> ())?
     
     @objc func backButtonTapped() {
         if let nickname = nickNameTextField.text {
-            delegate?.dataBind(nickname: nickname)
+//            delegate?.dataBind(nickname: nickname)
+            completionHandler?(nickname)
         }
         self.navigationController?.popViewController(animated: true)
     }
@@ -77,7 +81,7 @@ class DetailViewController: UIViewController {
     }
     
     private func setStyle() {
-        self.view.backgroundColor = .brown
+        self.view.backgroundColor = .white
     }
     
     private func setUI() {

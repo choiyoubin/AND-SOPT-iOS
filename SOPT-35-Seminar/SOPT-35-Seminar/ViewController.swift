@@ -67,6 +67,7 @@ class ViewController: UIViewController {
         switcher.isOn = true
         
         switcher.addTarget(self, action: #selector(changeButtonTapped), for: UIControl.Event.valueChanged)
+        
         return switcher
     }()
     
@@ -76,6 +77,8 @@ class ViewController: UIViewController {
         label.font = .systemFont(ofSize: 16)
         //추가한 부분
         label.textAlignment = .center
+        label.backgroundColor = .yellow
+        
         return label
     }()
     
@@ -113,7 +116,17 @@ class ViewController: UIViewController {
     @objc func nextButtonTapped() {
         let nextViewController = DetailViewController()
         
-        nextViewController.delegate = self
+//        nextViewController.delegate = self
+        
+        // weak self 사용 예시
+//        nextViewController.completionHandler = { [weak self] nickname in
+//            guard let self else { return }
+//            self.nickNameLabel.text = nickname
+//        }
+        
+        nextViewController.completionHandler = { string in
+            self.nickNameLabel.text = string
+        }
         
         //guard let으로 옵셔널 바인딩
         guard let title = titleTextField.text,
