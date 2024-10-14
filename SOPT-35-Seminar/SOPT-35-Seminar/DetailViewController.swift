@@ -10,23 +10,25 @@ import UIKit
 class DetailViewController: UIViewController {
     
     private let titleLabel: UILabel = {
-        let label = UILabel(frame: CGRect(origin: CGPoint(x: 0, y: 100), size: CGSize(width: UIScreen.main.bounds.size.width, height: 50)))
+        let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         label.textAlignment = .center
+        label.backgroundColor = .white
         
         return label
     }()
     
     private let contentLabel: UILabel = {
-        let label = UILabel(frame: CGRect(origin: CGPoint(x: 0, y: 170), size: CGSize(width: UIScreen.main.bounds.size.width, height: 50)))
+        let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.backgroundColor = .white
         return label
     }()
 
     private lazy var backButton: UIButton = {
-        let button = UIButton(frame: CGRect(origin: CGPoint(x: 10, y: 240), size: CGSize(width: UIScreen.main.bounds.size.width - 20, height: 50)))
+        let button = UIButton()
         button.setTitle("이전 화면으로", for: .normal)
         button.backgroundColor = .tintColor
         button.setTitleColor(.white, for: .normal)
@@ -52,17 +54,16 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         setStyle()
         setUI()
-        // Do any additional setup after loading the view.
+        setLayout()
     }
     
     private func setStyle() {
-        self.view.backgroundColor = .lightGray
+        self.view.backgroundColor = .systemPink
     }
     
     private func setUI() {
-        [titleLabel, contentLabel, backButton].forEach {
-            self.view.addSubview($0)
-        }
+        // UIView+ 적용
+        view.addSubviews(titleLabel, contentLabel, backButton)
     }
     
     func updateUI() {
@@ -80,14 +81,20 @@ class DetailViewController: UIViewController {
       }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setLayout() {
+        titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -50).isActive = true
+        titleLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        contentLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 200).isActive = true
+        contentLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 100).isActive = true
+        contentLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        backButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        backButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        backButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        backButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100).isActive = true
     }
-    */
 
 }

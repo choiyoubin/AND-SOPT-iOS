@@ -14,6 +14,8 @@
 		02B1A2172CB1019600E91477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02B1A2162CB1019600E91477 /* Assets.xcassets */; };
 		02B1A21A2CB1019600E91477 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 02B1A2192CB1019600E91477 /* Base */; };
 		02B1A2222CB1149500E91477 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2212CB1149500E91477 /* DetailViewController.swift */; };
+		02B1A2242CB4121200E91477 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 02B1A2232CB4121200E91477 /* .gitignore */; };
+		02B1A2282CB4286800E91477 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2272CB4286800E91477 /* UIView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		02B1A2192CB1019600E91477 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02B1A21B2CB1019600E91477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02B1A2212CB1149500E91477 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		02B1A2232CB4121200E91477 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		02B1A2272CB4286800E91477 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 		02B1A20C2CB1019200E91477 /* SOPT-35-Seminar */ = {
 			isa = PBXGroup;
 			children = (
+				02B1A2262CB4285600E91477 /* Extension */,
 				02B1A20D2CB1019200E91477 /* AppDelegate.swift */,
 				02B1A20F2CB1019200E91477 /* SceneDelegate.swift */,
 				02B1A2112CB1019200E91477 /* ViewController.swift */,
@@ -66,8 +71,17 @@
 				02B1A2162CB1019600E91477 /* Assets.xcassets */,
 				02B1A2182CB1019600E91477 /* LaunchScreen.storyboard */,
 				02B1A21B2CB1019600E91477 /* Info.plist */,
+				02B1A2232CB4121200E91477 /* .gitignore */,
 			);
 			path = "SOPT-35-Seminar";
+			sourceTree = "<group>";
+		};
+		02B1A2262CB4285600E91477 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				02B1A2272CB4286800E91477 /* UIView+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02B1A2242CB4121200E91477 /* .gitignore in Resources */,
 				02B1A2172CB1019600E91477 /* Assets.xcassets in Resources */,
 				02B1A21A2CB1019600E91477 /* Base in Resources */,
 				02B1A2152CB1019200E91477 /* Base in Resources */,
@@ -145,6 +160,7 @@
 				02B1A20E2CB1019200E91477 /* AppDelegate.swift in Sources */,
 				02B1A2102CB1019200E91477 /* SceneDelegate.swift in Sources */,
 				02B1A2222CB1149500E91477 /* DetailViewController.swift in Sources */,
+				02B1A2282CB4286800E91477 /* UIView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
