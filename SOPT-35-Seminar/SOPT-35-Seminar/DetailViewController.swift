@@ -9,11 +9,14 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    weak var delegate: NicknameDelegate?
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         label.textAlignment = .center
-        label.backgroundColor = .white
+        label.backgroundColor = .black
+        label.textColor = .white
         
         return label
     }()
@@ -23,7 +26,8 @@ class DetailViewController: UIViewController {
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.backgroundColor = .white
+        label.textColor = .white
+        label.backgroundColor = .black
         return label
     }()
 
@@ -36,20 +40,29 @@ class DetailViewController: UIViewController {
         return button
     }()
     
+    private let nickNameTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "닉네임을 입력해주세요."
+        textField.clearButtonMode = .whileEditing
+        textField.layer.borderColor = UIColor.black.cgColor
+        textField.layer.borderWidth = 1
+        // 추가한 부분
+        textField.textColor = .black
+        return textField
+    }()
+    
     private var receivedTitle: String?
     private var receivedContent: String?
+    var completionHandler: ((String) -> ())?
     
     @objc func backButtonTapped() {
-        goBack()
+        if let nickname = nickNameTextField.text {
+//            delegate?.dataBind(nickname: nickname)
+            completionHandler?(nickname)
+        }
+        self.navigationController?.popViewController(animated: true)
     }
     
-    private func goBack() {
-        if self.navigationController == nil {
-            self.dismiss(animated: true)
-        } else {
-            self.navigationController?.popViewController(animated: true)
-        }
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setStyle()
@@ -58,12 +71,12 @@ class DetailViewController: UIViewController {
     }
     
     private func setStyle() {
-        self.view.backgroundColor = .systemPink
+        self.view.backgroundColor = .white
     }
     
     private func setUI() {
         // UIView+ 적용
-        view.addSubviews(titleLabel, contentLabel, backButton)
+        view.addSubviews(titleLabel, contentLabel, backButton, nickNameTextField)
     }
     
     func updateUI() {
@@ -82,19 +95,29 @@ class DetailViewController: UIViewController {
     
 
     private func setLayout() {
-        titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -50).isActive = true
-        titleLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        NSLayoutConstraint.activate([
+        titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100),
+        titleLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
+        titleLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -50),
+        titleLabel.heightAnchor.constraint(equalToConstant: 50),
         
-        contentLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 200).isActive = true
-        contentLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 100).isActive = true
-        contentLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        contentLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 300),
+        contentLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 100),
+        contentLabel.heightAnchor.constraint(equalToConstant: 100),
         
-        backButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        backButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        backButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        backButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100).isActive = true
+        backButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+        backButton.widthAnchor.constraint(equalToConstant: 200),
+        backButton.heightAnchor.constraint(equalToConstant: 50),
+        backButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100),
+        
+        nickNameTextField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 200),
+        nickNameTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
+        nickNameTextField.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+        nickNameTextField.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
+}
 
+protocol NicknameDelegate: AnyObject {
+    func dataBind(nickname: String)
 }

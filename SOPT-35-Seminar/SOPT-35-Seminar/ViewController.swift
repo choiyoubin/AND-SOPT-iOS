@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     private let titleLabel: UILabel = {
         let label = UILabel(frame: CGRect(origin: CGPoint(x: 0, y: 100), size: CGSize(width: UIScreen.main.bounds.size.width, height: 50)))
         label.text = "네비게이션"
@@ -18,7 +19,7 @@ class ViewController: UIViewController {
     }()
     
     private let titleTextField: UITextField = {
-        let textField = UITextField(frame: CGRect(origin: CGPoint(x: 10, y: 170), size: CGSize(width: UIScreen.main.bounds.size.width - 20, height: 50)))
+        let textField = UITextField(frame: CGRect(origin: CGPoint(x: 10, y: 240), size: CGSize(width: UIScreen.main.bounds.size.width - 20, height: 50)))
         textField.placeholder = "제목을 입력해주세요."
         textField.clearButtonMode = .whileEditing
         textField.layer.borderColor = UIColor.gray.cgColor
@@ -29,7 +30,7 @@ class ViewController: UIViewController {
     }()
     
     private let contentTextView: UITextView = {
-        let textView = UITextView(frame: CGRect(origin: CGPoint(x: 10, y: 240), size: CGSize(width: UIScreen.main.bounds.size.width - 20, height: 100)))
+        let textView = UITextView(frame: CGRect(origin: CGPoint(x: 10, y: 310), size: CGSize(width: UIScreen.main.bounds.size.width - 20, height: 100)))
         
         textView.layer.borderColor = UIColor.gray.cgColor
         textView.layer.borderWidth = 1
@@ -40,7 +41,7 @@ class ViewController: UIViewController {
     }()
     
     private lazy var nextButton: UIButton = {
-        let button = UIButton(frame: CGRect(origin: CGPoint(x: 10, y: 360), size: CGSize(width: UIScreen.main.bounds.size.width - 20, height: 50)))
+        let button = UIButton(frame: CGRect(origin: CGPoint(x: 10, y: 430), size: CGSize(width: UIScreen.main.bounds.size.width - 20, height: 50)))
         button.setTitle("다음", for: .normal)
         button.backgroundColor = .tintColor
         button.setTitleColor(.white, for: .normal)
@@ -52,7 +53,7 @@ class ViewController: UIViewController {
     }()
 
     private lazy var changeModeButton: UIButton = {
-        let button = UIButton(frame: CGRect(origin: CGPoint(x: 10, y: 430), size: CGSize(width: UIScreen.main.bounds.size.width - 20, height: 50)))
+        let button = UIButton(frame: CGRect(origin: CGPoint(x: 10, y: 500), size: CGSize(width: UIScreen.main.bounds.size.width - 20, height: 50)))
         button.setTitle("전환 모드 변경", for: .normal)
         button.backgroundColor = .tintColor
         button.setTitleColor(.white, for: .normal)
@@ -66,7 +67,19 @@ class ViewController: UIViewController {
         switcher.isOn = true
         
         switcher.addTarget(self, action: #selector(changeButtonTapped), for: UIControl.Event.valueChanged)
+        
         return switcher
+    }()
+    
+    private let nickNameLabel: UILabel = {
+        let label = UILabel(frame: CGRect(origin: CGPoint(x: 0, y: 170), size: CGSize(width: UIScreen.main.bounds.size.width, height: 50)))
+        label.text = "닉네임 미설정"
+        label.font = .systemFont(ofSize: 16)
+        //추가한 부분
+        label.textAlignment = .center
+        label.backgroundColor = .yellow
+        
+        return label
     }()
     
     override func viewDidLoad() {
@@ -93,7 +106,7 @@ class ViewController: UIViewController {
     
     private func setUI() {
         self.view.backgroundColor = .white
-        [titleLabel, titleTextField, contentTextView, nextButton, changeModeButton, modeSwitch].forEach {
+        [titleLabel, titleTextField, contentTextView, nextButton, changeModeButton, modeSwitch, nickNameLabel].forEach {
             self.view.addSubview($0)
         }
         // UIView+ 적용 - 기존 VC제외 다른 VC에 오토레이아웃 적용 위해 UIView+변경 
@@ -101,11 +114,19 @@ class ViewController: UIViewController {
     }
     
     @objc func nextButtonTapped() {
-        transitionToNextViewController()
-    }
-    
-    private func transitionToNextViewController() {
         let nextViewController = DetailViewController()
+        
+//        nextViewController.delegate = self
+        
+        // weak self 사용 예시
+//        nextViewController.completionHandler = { [weak self] nickname in
+//            guard let self else { return }
+//            self.nickNameLabel.text = nickname
+//        }
+        
+        nextViewController.completionHandler = { string in
+            self.nickNameLabel.text = string
+        }
         
         //guard let으로 옵셔널 바인딩
         guard let title = titleTextField.text,
@@ -118,17 +139,21 @@ class ViewController: UIViewController {
         } else {
             self.present(nextViewController, animated: true)
         }
-        
-//      if let으로 옵셔널 바인딩
-//        if let title = titleTextField.text, let content = contentTextView.text {
-//            nextViewController.dataBind(title: title, content: content)
-//        }
-//        if pushMode {
-//            self.navigationController?.pushViewController(nextViewController, animated: true)
-//        } else {
-//            self.present(nextViewController, animated: true)
-//        }
     }
-
+    //      if let으로 옵셔널 바인딩
+    //        if let title = titleTextField.text, let content = contentTextView.text {
+    //            nextViewController.dataBind(title: title, content: content)
+    //        }
+    //        if pushMode {
+    //            self.navigationController?.pushViewController(nextViewController, animated: true)
+    //        } else {
+    //            self.present(nextViewController, animated: true)
+    //        }
 }
 
+extension ViewController: NicknameDelegate {
+    func dataBind(nickname: String) {
+        guard !nickname.isEmpty else { return }
+        self.nickNameLabel.text = nickname
+    }
+}
