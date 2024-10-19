@@ -19,6 +19,7 @@
 		02B1A22D2CBA4A8A00E91477 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02B1A22C2CBA4A8A00E91477 /* SnapKit */; };
 		02B1A2302CBA4AD300E91477 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 02B1A22F2CBA4AD300E91477 /* Then */; };
 		02B1A2322CBA59D400E91477 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2312CBA59D400E91477 /* ColorViewController.swift */; };
+		02B1A2342CC409D800E91477 /* AppStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2332CC409D800E91477 /* AppStoreViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		02B1A2232CB4121200E91477 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		02B1A2272CB4286800E91477 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		02B1A2312CBA59D400E91477 /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
+		02B1A2332CC409D800E91477 /* AppStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				02B1A21B2CB1019600E91477 /* Info.plist */,
 				02B1A2232CB4121200E91477 /* .gitignore */,
 				02B1A2312CBA59D400E91477 /* ColorViewController.swift */,
+				02B1A2332CC409D800E91477 /* AppStoreViewController.swift */,
 			);
 			path = "SOPT-35-Seminar";
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				02B1A2122CB1019200E91477 /* ViewController.swift in Sources */,
 				02B1A20E2CB1019200E91477 /* AppDelegate.swift in Sources */,
 				02B1A2102CB1019200E91477 /* SceneDelegate.swift in Sources */,
+				02B1A2342CC409D800E91477 /* AppStoreViewController.swift in Sources */,
 				02B1A2222CB1149500E91477 /* DetailViewController.swift in Sources */,
 				02B1A2322CBA59D400E91477 /* ColorViewController.swift in Sources */,
 				02B1A2282CB4286800E91477 /* UIView+.swift in Sources */,
