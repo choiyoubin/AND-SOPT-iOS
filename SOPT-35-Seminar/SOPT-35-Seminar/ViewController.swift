@@ -9,11 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: - Component 구성
     private let titleLabel: UILabel = {
         let label = UILabel(frame: CGRect(origin: CGPoint(x: 0, y: 100), size: CGSize(width: UIScreen.main.bounds.size.width, height: 50)))
         label.text = "네비게이션"
         label.font = .systemFont(ofSize: 16)
-        //추가한 부분
         label.textAlignment = .center
         return label
     }()
@@ -24,7 +24,6 @@ class ViewController: UIViewController {
         textField.clearButtonMode = .whileEditing
         textField.layer.borderColor = UIColor.gray.cgColor
         textField.layer.borderWidth = 1
-        // 추가한 부분
         textField.textColor = .blue
         return textField
     }()
@@ -34,7 +33,6 @@ class ViewController: UIViewController {
         
         textView.layer.borderColor = UIColor.gray.cgColor
         textView.layer.borderWidth = 1
-        // 추가한 부분
         textView.textColor = .red
         
         return textView
@@ -46,7 +44,6 @@ class ViewController: UIViewController {
         button.backgroundColor = .tintColor
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
-        // 추가한 부분
         button.layer.cornerRadius = 20
         
         return button
@@ -75,7 +72,6 @@ class ViewController: UIViewController {
         let label = UILabel(frame: CGRect(origin: CGPoint(x: 0, y: 170), size: CGSize(width: UIScreen.main.bounds.size.width, height: 50)))
         label.text = "닉네임 미설정"
         label.font = .systemFont(ofSize: 16)
-        //추가한 부분
         label.textAlignment = .center
         label.backgroundColor = .yellow
         
@@ -88,6 +84,15 @@ class ViewController: UIViewController {
         setUI()
     }
     
+    // MARK: - UI 설정
+    private func setUI() {
+        self.view.backgroundColor = .white
+        [titleLabel, titleTextField, contentTextView, nextButton, changeModeButton, modeSwitch, nickNameLabel].forEach {
+            self.view.addSubview($0)
+        }
+    }
+    
+    // MARK: - Function
     private var pushMode = true
     
     private func changeUI() {
@@ -102,15 +107,6 @@ class ViewController: UIViewController {
     private func changeMode() {
         self.pushMode.toggle()
         self.changeUI()
-    }
-    
-    private func setUI() {
-        self.view.backgroundColor = .white
-        [titleLabel, titleTextField, contentTextView, nextButton, changeModeButton, modeSwitch, nickNameLabel].forEach {
-            self.view.addSubview($0)
-        }
-        // UIView+ 적용 - 기존 VC제외 다른 VC에 오토레이아웃 적용 위해 UIView+변경 
-//        view.addSubviews(titleLabel, titleTextField, contentTextView, nextButton, changeModeButton, modeSwitch)
     }
     
     @objc func nextButtonTapped() {
@@ -151,6 +147,7 @@ class ViewController: UIViewController {
     //        }
 }
 
+// MARK: - NicknameDelegate
 extension ViewController: NicknameDelegate {
     func dataBind(nickname: String) {
         guard !nickname.isEmpty else { return }

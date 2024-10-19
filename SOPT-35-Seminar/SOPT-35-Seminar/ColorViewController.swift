@@ -11,6 +11,7 @@ import SnapKit
 
 class ColorViewController: UIViewController {
 
+    // MARK: - Component 구성
     private let scrollView = UIScrollView().then {
         $0.showsVerticalScrollIndicator = false
     }
@@ -32,6 +33,7 @@ class ColorViewController: UIViewController {
         $0.backgroundColor = .green
     }
     
+    // MARK: - UI
     func setStyle() {
         view.self.backgroundColor = .white
     }
@@ -83,7 +85,6 @@ class ColorViewController: UIViewController {
         setStyle()
         setUI()
         setLayout()
-        // Do any additional setup after loading the view.
     }
 
 }
