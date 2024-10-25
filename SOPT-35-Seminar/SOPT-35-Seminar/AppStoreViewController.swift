@@ -14,6 +14,7 @@ class AppStoreViewController: UIViewController {
     // MARK: - Component 구성
     private let scrollView = UIScrollView().then {
         $0.showsVerticalScrollIndicator = true
+        $0.backgroundColor = .white
     }
     private let contentView = UIView()
     
@@ -117,13 +118,6 @@ class AppStoreViewController: UIViewController {
         $0.textColor = .gray
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setStyle()
-        setUI()
-        setLayout()
-    }
-    
     // MARK: - APP news
     private let newsView = UIView()
     // TODO: > 버튼 추가
@@ -135,8 +129,6 @@ class AppStoreViewController: UIViewController {
         $0.setTitleColor(.black, for: .normal)
         $0.addTarget(self, action: #selector(newsButtonTapped), for: .touchUpInside)
     }
-    
-    
     
     let versionLabel = UILabel().then {
         $0.text = "버전 5.186.0"
@@ -159,6 +151,27 @@ class AppStoreViewController: UIViewController {
         $0.textColor = .black
     }
     
+    //MARK: - App Preview
+    private let previewView = UIView()
+    
+    let previewLabel = UILabel().then {
+        $0.text = "미리 보기"
+        $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        $0.textColor = .black
+    }
+    
+    let previewImageView = UIImageView().then {
+        $0.image = UIImage(named: "tossPreview")
+    }
+    
+//    private let infoView = UIView()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setStyle()
+        setUI()
+        setLayout()
+    }
+    
     // MARK: - UI
     func setStyle() {
         self.view.backgroundColor = .white
@@ -171,18 +184,18 @@ class AppStoreViewController: UIViewController {
         awardView.addSubviews(awardTitleLabel, awardImageview, awardCateLabel)
         ageView.addSubviews(ageTitleLabel, ageLabel, ageStandardLabel)
         newsView.addSubviews(newsButton, versionLabel, timeLabel, newsLabel)
-        contentView.addSubviews(IconImageView, titleLabel, subtitleLabel, openButton, shareButton, ratingView, awardView, ageView, newsView)
+        previewView.addSubviews(previewLabel, previewImageView)
+        contentView.addSubviews(IconImageView, titleLabel, subtitleLabel, openButton, shareButton, ratingView, awardView, ageView, newsView, previewView)
     }
     
     func setLayout() {
         scrollView.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
-            $0.width.equalToSuperview()
         }
         contentView.snp.makeConstraints {
-            $0.edges.equalTo(scrollView)
-            $0.width.equalTo(scrollView)
-            $0.height.greaterThanOrEqualToSuperview().priority(.low)
+            $0.edges.equalTo(scrollView.contentLayoutGuide)
+            $0.width.equalTo(scrollView.frameLayoutGuide)
+            $0.height.equalTo(2000)
         }
         //MARK: APP Details Layout
         IconImageView.snp.makeConstraints {
@@ -292,7 +305,26 @@ class AppStoreViewController: UIViewController {
             $0.top.equalTo(versionLabel.snp.bottom).offset(10)
             $0.leading.equalTo(newsButton)
         }
+        //MARK: APP Preview Image Layout
+        previewView.snp.makeConstraints {
+            $0.top.equalTo(newsView.snp.bottom).offset(20)
+            $0.leading.trailing.equalTo(contentView)
+        }
+        previewLabel.snp.makeConstraints {
+            $0.top.equalTo(previewView)
+            $0.leading.equalTo(previewView).offset(20)
+        }
+        previewImageView.snp.makeConstraints {
+            $0.top.equalTo(previewLabel.snp.bottom).offset(10)
+            $0.leading.equalTo(previewView).offset(20)
+            $0.trailing.equalTo(previewView).offset(-20)
+            $0.height.equalTo(previewImageView.snp.width).multipliedBy(16.0/9.0)
+        }
+        
+        
     }
+    
+    // MARK: 버전기록페이지 이동
     @objc func newsButtonTapped() {
         let nextViewController = versionRecordViewController()
         
