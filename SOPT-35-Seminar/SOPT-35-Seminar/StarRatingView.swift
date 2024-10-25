@@ -7,7 +7,11 @@
 
 import UIKit
 
+import UIKit
+
 class StarRatingView: UIView {
+    
+    private var starColor: UIColor
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -17,7 +21,8 @@ class StarRatingView: UIView {
         return stackView
     }()
     
-    init() {
+    init(starColor: UIColor) {
+        self.starColor = starColor
         super.init(frame: .zero)
         setupStars()
         setupLayout()
@@ -33,12 +38,12 @@ class StarRatingView: UIView {
         
         for _ in 0..<4 {
             let imageView = UIImageView(image: filledStarImage)
-            imageView.tintColor = .black
+            imageView.tintColor = starColor
             stackView.addArrangedSubview(imageView)
         }
         
         let halfStarImageView = UIImageView(image: halfStarImage)
-        halfStarImageView.tintColor = .black 
+        halfStarImageView.tintColor = starColor
         stackView.addArrangedSubview(halfStarImageView)
     }
     

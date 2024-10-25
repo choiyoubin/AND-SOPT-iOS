@@ -53,6 +53,7 @@ class AppStoreViewController: UIViewController {
     }
     
     // MARK: - APP Description
+    private let descriptionView = UIView()
     private let ratingView = UIView()
     
     let rateTitleLabel = UILabel().then {
@@ -69,7 +70,7 @@ class AppStoreViewController: UIViewController {
         $0.textColor = .gray
     }
     
-    let rateStarRatingView = StarRatingView()
+    let rateStarRatingView = StarRatingView(starColor: .gray)
     
     private let awardView = UIView()
     
@@ -122,13 +123,13 @@ class AppStoreViewController: UIViewController {
         $0.invalidateIntrinsicContentSize()
         $0.setTitle("새로운 소식", for: .normal)
         $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
-        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
         $0.semanticContentAttribute = .forceRightToLeft
         $0.contentHorizontalAlignment = .center
         $0.contentVerticalAlignment = .center
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         $0.titleLabel?.textAlignment = .left
         $0.setTitleColor(.black, for: .normal)
+        $0.setImageTintColor(UIColor.gray)
         $0.addTarget(self, action: #selector(newsButtonTapped), for: .touchUpInside)
     }
     
@@ -197,13 +198,13 @@ class AppStoreViewController: UIViewController {
         $0.invalidateIntrinsicContentSize()
         $0.setTitle("평가 및 리뷰", for: .normal)
         $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
-        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
         $0.semanticContentAttribute = .forceRightToLeft
         $0.contentHorizontalAlignment = .center
         $0.contentVerticalAlignment = .center
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         $0.titleLabel?.textAlignment = .left
         $0.setTitleColor(.black, for: .normal)
+        $0.setImageTintColor(UIColor.gray)
         $0.addTarget(self, action: #selector(reviewButtonTapped), for: .touchUpInside)
     }
     let reviewRateLabel = UILabel().then {
@@ -216,7 +217,7 @@ class AppStoreViewController: UIViewController {
         $0.font = .systemFont(ofSize: 16, weight: .regular)
         $0.textColor = .darkGray
     }
-    let starRatingView = StarRatingView()
+    let starRatingView = StarRatingView(starColor: .black)
     let helpfulReviewLabel = UILabel().then {
         $0.text = "가장 도움이 되는 리뷰"
         $0.font = .systemFont(ofSize: 16, weight: .bold)
@@ -225,9 +226,15 @@ class AppStoreViewController: UIViewController {
     
     //MARK: - App Review Detail
     private let reviewDetailView = UIView().then {
-        $0.layer.cornerRadius = 20
-        $0.layer.borderColor = UIColor.lightGray.cgColor
+        $0.layer.cornerRadius = 10
         $0.layer.borderWidth = 1.0
+        $0.layer.borderColor = UIColor.lightGray.cgColor
+        $0.layer.shadowColor = UIColor.black.cgColor
+        $0.layer.shadowOpacity = 0.5
+        $0.layer.shadowOffset = CGSize(width: 2, height: 2)
+        $0.layer.shadowRadius = 4
+        $0.layer.masksToBounds = false
+        $0.backgroundColor = .white
     }
     
     let reviewTitleLabel = UILabel().then {
@@ -235,7 +242,7 @@ class AppStoreViewController: UIViewController {
         $0.font = .systemFont(ofSize: 16, weight: .semibold)
         $0.textColor = .black
     }
-    let detailStarRatingView = StarRatingView()
+    let detailStarRatingView = StarRatingView(starColor: .black)
     let dateLabel = UILabel().then {
         $0.text = "11월 17일 "
         $0.font = .systemFont(ofSize: 12, weight: .regular)
@@ -303,13 +310,14 @@ class AppStoreViewController: UIViewController {
         ratingView.addSubviews(rateLabel, rateTitleLabel, rateStarRatingView)
         awardView.addSubviews(awardTitleLabel, awardImageview, awardCateLabel)
         ageView.addSubviews(ageTitleLabel, ageLabel, ageStandardLabel)
+        descriptionView.addSubviews(ratingView, awardView, ageView)
         newsView.addSubviews(newsButton, versionLabel, timeLabel, newsLabel)
         previewView.addSubviews(previewLabel, previewImageView)
         infoView.addSubviews(infoTitle, developerLabel, developerNameLabel, developerInfoButton)
         reviewView.addSubviews(reviewButton, reviewRateLabel, reviewNumberLabel, starRatingView, helpfulReviewLabel)
         reviewDetailView.addSubviews(reviewTitleLabel, detailStarRatingView, dateLabel, userLabel, reviewInfoLabel)
         reviewWriteView.addSubviews(reviewTapLabel, writeStarRatingView, reviewWriteButton, appSupportButton)
-        contentView.addSubviews(IconImageView, titleLabel, subtitleLabel, openButton, shareButton, ratingView, awardView, ageView, newsView, previewView, infoView, reviewView, reviewDetailView, reviewWriteView)
+        contentView.addSubviews(IconImageView, titleLabel, subtitleLabel, openButton, shareButton, descriptionView, newsView, previewView, infoView, reviewView, reviewDetailView, reviewWriteView)
     }
     
     func setLayout() {
@@ -346,6 +354,7 @@ class AppStoreViewController: UIViewController {
             $0.width.height.equalTo(20)
             $0.trailing.equalTo(contentView).offset(-20)
         }
+        
         //MARK: - APP Description Layout
         ratingView.snp.makeConstraints {
             $0.top.equalTo(openButton.snp.bottom).offset(30)
@@ -404,6 +413,10 @@ class AppStoreViewController: UIViewController {
         ageStandardLabel.snp.makeConstraints {
             $0.centerX.equalTo(ageTitleLabel)
             $0.bottom.equalTo(ageView)
+        }
+        descriptionView.snp.makeConstraints {
+            $0.leading.trailing.equalTo(contentView).inset(20)
+            $0.top.bottom.equalTo(ratingView)
         }
         //MARK: - APP News Layout
         newsView.snp.makeConstraints {
