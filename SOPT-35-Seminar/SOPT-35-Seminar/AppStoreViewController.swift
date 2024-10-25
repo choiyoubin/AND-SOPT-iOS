@@ -20,6 +20,9 @@ class AppStoreViewController: UIViewController {
     // MARK: APP Details
     let IconImageView = UIImageView().then {
         $0.image = UIImage(named: "tossIcon")
+        $0.layer.borderWidth = 0.3
+        $0.layer.borderColor = UIColor.lightGray.cgColor
+        $0.layer.cornerRadius = 20
     }
     
     let titleLabel = UILabel().then {
@@ -48,7 +51,7 @@ class AppStoreViewController: UIViewController {
         $0.tintColor = .tintColor
     }
     
-    // MARK: APP Description
+    // MARK: - APP Description
     private let ratingView = UIView()
     
     let rateTitleLabel = UILabel().then {
@@ -121,6 +124,41 @@ class AppStoreViewController: UIViewController {
         setLayout()
     }
     
+    // MARK: - APP news
+    private let newsView = UIView()
+    // TODO: > 버튼 추가
+    private lazy var newsButton = UIButton().then {
+        $0.invalidateIntrinsicContentSize()
+        $0.setTitle("새로운 소식", for: .normal)
+        $0.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        $0.titleLabel?.textAlignment = .left
+        $0.setTitleColor(.black, for: .normal)
+        $0.addTarget(self, action: #selector(newsButtonTapped), for: .touchUpInside)
+    }
+    
+    
+    
+    let versionLabel = UILabel().then {
+        $0.text = "버전 5.186.0"
+        $0.font = .systemFont(ofSize: 12)
+        $0.textAlignment = .left
+        $0.textColor = .gray
+    }
+    
+    let timeLabel = UILabel().then {
+        $0.text = "23시간 전"
+        $0.font = .systemFont(ofSize: 12)
+        $0.textAlignment = .center
+        $0.textColor = .gray
+    }
+    
+    let newsLabel = UILabel().then {
+        $0.text = "• 구석구석 숨어있던 버그들을 잡았어요."
+        $0.font = .systemFont(ofSize: 12, weight: .regular)
+        $0.textAlignment = .center
+        $0.textColor = .black
+    }
+    
     // MARK: - UI
     func setStyle() {
         self.view.backgroundColor = .white
@@ -132,7 +170,8 @@ class AppStoreViewController: UIViewController {
         ratingView.addSubviews(rateLabel, rateTitleLabel, rateStarView)
         awardView.addSubviews(awardTitleLabel, awardImageview, awardCateLabel)
         ageView.addSubviews(ageTitleLabel, ageLabel, ageStandardLabel)
-        contentView.addSubviews(IconImageView, titleLabel, subtitleLabel, openButton, shareButton, ratingView, awardView, ageView)
+        newsView.addSubviews(newsButton, versionLabel, timeLabel, newsLabel)
+        contentView.addSubviews(IconImageView, titleLabel, subtitleLabel, openButton, shareButton, ratingView, awardView, ageView, newsView)
     }
     
     func setLayout() {
@@ -145,6 +184,7 @@ class AppStoreViewController: UIViewController {
             $0.width.equalTo(scrollView)
             $0.height.greaterThanOrEqualToSuperview().priority(.low)
         }
+        //MARK: APP Details Layout
         IconImageView.snp.makeConstraints {
             $0.top.equalTo(contentView.snp.top).offset(20)
             $0.leading.equalTo(contentView).offset(20)
@@ -169,9 +209,9 @@ class AppStoreViewController: UIViewController {
             $0.width.height.equalTo(20)
             $0.trailing.equalTo(contentView).offset(-20)
         }
-        
+        //MARK: APP Description Layout
         ratingView.snp.makeConstraints {
-            $0.top.equalTo(openButton.snp.bottom).offset(40)
+            $0.top.equalTo(openButton.snp.bottom).offset(30)
             $0.leading.equalTo(contentView).offset(20)
             $0.width.equalTo((view.bounds.width - 40) * 0.33)
             $0.height.equalTo(60)
@@ -228,9 +268,35 @@ class AppStoreViewController: UIViewController {
             $0.centerX.equalTo(ageTitleLabel)
             $0.bottom.equalTo(ageView)
         }
+        //MARK: APP News Layout
+        newsView.snp.makeConstraints {
+            $0.top.equalTo(ratingView.snp.bottom).offset(20)
+            $0.leading.trailing.equalTo(contentView)
+            $0.height.greaterThanOrEqualTo(80)
+        }
+        newsButton.snp.makeConstraints {
+            $0.top.equalTo(newsView)
+            $0.leading.equalTo(newsView).offset(20)
+            $0.height.equalTo(20)
+        }
+        versionLabel.snp.makeConstraints {
+            $0.top.equalTo(newsButton.snp.bottom).offset(10)
+            $0.leading.equalTo(newsButton)
+            $0.width.equalTo(80)
+        }
+        timeLabel.snp.makeConstraints {
+            $0.top.equalTo(versionLabel)
+            $0.trailing.equalTo(newsView).offset(-20)
+        }
+        newsLabel.snp.makeConstraints {
+            $0.top.equalTo(versionLabel.snp.bottom).offset(10)
+            $0.leading.equalTo(newsButton)
+        }
+    }
+    @objc func newsButtonTapped() {
+        let nextViewController = versionRecordViewController()
         
-        
-        
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
 
