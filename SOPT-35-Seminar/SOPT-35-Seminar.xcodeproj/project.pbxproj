@@ -22,6 +22,9 @@
 		02B1A2342CC409D800E91477 /* AppStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2332CC409D800E91477 /* AppStoreViewController.swift */; };
 		02B1A2362CC7FF5D00E91477 /* toPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2352CC7FF5D00E91477 /* toPreview.swift */; };
 		02B1A23A2CCB673E00E91477 /* versionRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2392CCB673E00E91477 /* versionRecordViewController.swift */; };
+		02B1A23C2CCB8A8F00E91477 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A23B2CCB8A8F00E91477 /* StarRatingView.swift */; };
+		02B1A23E2CCBA27800E91477 /* WriteStarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A23D2CCBA27700E91477 /* WriteStarRatingView.swift */; };
+		02B1A2402CCBA40200E91477 /* reviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A23F2CCBA40200E91477 /* reviewDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		02B1A2332CC409D800E91477 /* AppStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreViewController.swift; sourceTree = "<group>"; };
 		02B1A2352CC7FF5D00E91477 /* toPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toPreview.swift; sourceTree = "<group>"; };
 		02B1A2392CCB673E00E91477 /* versionRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = versionRecordViewController.swift; sourceTree = "<group>"; };
+		02B1A23B2CCB8A8F00E91477 /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
+		02B1A23D2CCBA27700E91477 /* WriteStarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteStarRatingView.swift; sourceTree = "<group>"; };
+		02B1A23F2CCBA40200E91477 /* reviewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reviewDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,9 @@
 				02B1A2312CBA59D400E91477 /* ColorViewController.swift */,
 				02B1A2332CC409D800E91477 /* AppStoreViewController.swift */,
 				02B1A2392CCB673E00E91477 /* versionRecordViewController.swift */,
+				02B1A23B2CCB8A8F00E91477 /* StarRatingView.swift */,
+				02B1A23D2CCBA27700E91477 /* WriteStarRatingView.swift */,
+				02B1A23F2CCBA40200E91477 /* reviewDetailViewController.swift */,
 			);
 			path = "SOPT-35-Seminar";
 			sourceTree = "<group>";
@@ -182,9 +191,12 @@
 			files = (
 				02B1A2122CB1019200E91477 /* ViewController.swift in Sources */,
 				02B1A20E2CB1019200E91477 /* AppDelegate.swift in Sources */,
+				02B1A2402CCBA40200E91477 /* reviewDetailViewController.swift in Sources */,
 				02B1A2102CB1019200E91477 /* SceneDelegate.swift in Sources */,
+				02B1A23C2CCB8A8F00E91477 /* StarRatingView.swift in Sources */,
 				02B1A23A2CCB673E00E91477 /* versionRecordViewController.swift in Sources */,
 				02B1A2342CC409D800E91477 /* AppStoreViewController.swift in Sources */,
+				02B1A23E2CCBA27800E91477 /* WriteStarRatingView.swift in Sources */,
 				02B1A2222CB1149500E91477 /* DetailViewController.swift in Sources */,
 				02B1A2322CBA59D400E91477 /* ColorViewController.swift in Sources */,
 				02B1A2282CB4286800E91477 /* UIView+.swift in Sources */,
