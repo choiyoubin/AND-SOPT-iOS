@@ -6,20 +6,19 @@
 //
 
 import UIKit
-
-import UIKit
+import Then
+import SnapKit
 
 class StarRatingView: UIView {
     
     private var starColor: UIColor
     
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        stackView.spacing = 0
-        return stackView
-    }()
+    private lazy var stackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.distribution = .fillEqually
+        $0.spacing = 0
+        $0.translatesAutoresizingMaskIntoConstraints = false
+    }
     
     init(starColor: UIColor) {
         self.starColor = starColor
@@ -49,12 +48,8 @@ class StarRatingView: UIView {
     
     private func setupLayout() {
         addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: self.topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-        ])
+        stackView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
 }

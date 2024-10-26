@@ -6,16 +6,17 @@
 //
 
 import UIKit
+import Then
+import SnapKit
 
 class WriteStarRatingView: UIView {
     
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        stackView.spacing = 5
-        return stackView
-    }()
+    private lazy var stackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.distribution = .fillEqually
+        $0.spacing = 5
+        $0.translatesAutoresizingMaskIntoConstraints = false
+    }
     
     init() {
         super.init(frame: .zero)
@@ -39,13 +40,9 @@ class WriteStarRatingView: UIView {
     
     private func setupLayout() {
         addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: self.topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-        ])
+        stackView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
 }
 
