@@ -15,7 +15,6 @@ class WriteStarRatingView: UIView {
         $0.axis = .horizontal
         $0.distribution = .fillEqually
         $0.spacing = 5
-        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
     init() {

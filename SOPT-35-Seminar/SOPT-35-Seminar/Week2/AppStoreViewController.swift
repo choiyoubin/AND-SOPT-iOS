@@ -21,44 +21,8 @@ class AppStoreViewController: UIViewController {
     private let appDetailHeaderView = AppDetailHeaderView()
     
     private let appDescriptionView = AppDescriptionView()
-    // MARK: - APP news
-    private let newsView = UIView()
     
-    private lazy var newsButton = UIButton().then {
-        $0.invalidateIntrinsicContentSize()
-        $0.setTitle("새로운 소식", for: .normal)
-        $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
-        $0.semanticContentAttribute = .forceRightToLeft
-        $0.contentHorizontalAlignment = .center
-        $0.contentVerticalAlignment = .center
-        $0.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        $0.titleLabel?.textAlignment = .left
-        $0.setTitleColor(.black, for: .normal)
-        $0.setImageTintColor(UIColor.gray)
-        $0.addTarget(self, action: #selector(newsButtonTapped), for: .touchUpInside)
-    }
-    
-    let versionLabel = UILabel().then {
-        $0.text = "버전 5.186.0"
-        $0.font = .systemFont(ofSize: 12)
-        $0.textAlignment = .left
-        $0.textColor = .gray
-    }
-    
-    let timeLabel = UILabel().then {
-        $0.text = "23시간 전"
-        $0.font = .systemFont(ofSize: 12)
-        $0.textAlignment = .center
-        $0.textColor = .gray
-    }
-    
-    let newsLabel = UILabel().then {
-        $0.text = "• 구석구석 숨어있던 버그들을 잡았어요."
-        $0.font = .systemFont(ofSize: 12, weight: .regular)
-        $0.textAlignment = .center
-        $0.textColor = .black
-    }
-    
+    private let appNewsView = AppNewsView()
     //MARK: - App Preview
     private let previewView = UIView()
     
@@ -101,15 +65,15 @@ class AppStoreViewController: UIViewController {
     
     private lazy var reviewButton = UIButton().then {
         $0.invalidateIntrinsicContentSize()
-        $0.setTitle("평가 및 리뷰", for: .normal)
-        $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        $0.setTitle("평가 및 리뷰 ", for: .normal)
+        $0.setImage(UIImage(systemName: "chevron.right", withConfiguration: UIImage.SymbolConfiguration(pointSize: 12)), for: .normal)
         $0.semanticContentAttribute = .forceRightToLeft
         $0.contentHorizontalAlignment = .center
         $0.contentVerticalAlignment = .center
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         $0.titleLabel?.textAlignment = .left
         $0.setTitleColor(.black, for: .normal)
-        $0.setImageTintColor(UIColor.gray)
+        $0.setImageTintColor(UIColor.darkGray)
         $0.addTarget(self, action: #selector(reviewButtonTapped), for: .touchUpInside)
     }
     let reviewRateLabel = UILabel().then {
@@ -199,9 +163,12 @@ class AppStoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setStyle()
         setUI()
         setLayout()
+        
+        setAddTarget()
     }
     
     // MARK: - UI
@@ -212,13 +179,12 @@ class AppStoreViewController: UIViewController {
     func setUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        newsView.addSubviews(newsButton, versionLabel, timeLabel, newsLabel)
         previewView.addSubviews(previewLabel, previewImageView)
         infoView.addSubviews(infoTitle, developerLabel, developerNameLabel, developerInfoButton)
         reviewView.addSubviews(reviewButton, reviewRateLabel, reviewNumberLabel, starRatingView, helpfulReviewLabel)
         reviewDetailView.addSubviews(reviewTitleLabel, detailStarRatingView, dateLabel, userLabel, reviewInfoLabel)
         reviewWriteView.addSubviews(reviewTapLabel, writeStarRatingView, reviewWriteButton, appSupportButton)
-        contentView.addSubviews(appDetailHeaderView, appDescriptionView, newsView, previewView, infoView, reviewView, reviewDetailView, reviewWriteView)
+        contentView.addSubviews(appDetailHeaderView, appDescriptionView, appNewsView, previewView, infoView, reviewView, reviewDetailView, reviewWriteView)
     }
     
     func setLayout() {
@@ -238,33 +204,13 @@ class AppStoreViewController: UIViewController {
             $0.top.equalTo(appDetailHeaderView.snp.bottom).offset(30)
             $0.leading.trailing.equalTo(contentView).inset(20)
         }
-        //MARK: - APP News Layout
-        newsView.snp.makeConstraints {
+        appNewsView.snp.makeConstraints {
             $0.top.equalTo(appDescriptionView.snp.bottom).offset(20)
-            $0.leading.trailing.equalTo(contentView)
-            $0.height.greaterThanOrEqualTo(80)
-        }
-        newsButton.snp.makeConstraints {
-            $0.top.equalTo(newsView)
-            $0.leading.equalTo(newsView).offset(20)
-            $0.height.equalTo(20)
-        }
-        versionLabel.snp.makeConstraints {
-            $0.top.equalTo(newsButton.snp.bottom).offset(10)
-            $0.leading.equalTo(newsButton)
-            $0.width.equalTo(80)
-        }
-        timeLabel.snp.makeConstraints {
-            $0.top.equalTo(versionLabel)
-            $0.trailing.equalTo(newsView).offset(-20)
-        }
-        newsLabel.snp.makeConstraints {
-            $0.top.equalTo(versionLabel.snp.bottom).offset(10)
-            $0.leading.equalTo(newsButton)
+            $0.leading.trailing.equalToSuperview()
         }
         //MARK: - APP Preview Image Layout
         previewView.snp.makeConstraints {
-            $0.top.equalTo(newsView.snp.bottom).offset(20)
+            $0.top.equalTo(appNewsView.snp.bottom).offset(20)
             $0.leading.trailing.equalTo(contentView)
             $0.bottom.equalTo(previewImageView).offset(10)
         }
@@ -395,6 +341,14 @@ class AppStoreViewController: UIViewController {
         let nextViewController = reviewDetailViewController()
         
         self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    private func setAddTarget() {
+        appNewsView.newsButton.addTarget(
+            self,
+            action: #selector(newsButtonTapped),
+            for: .touchUpInside
+        )
     }
 }
 

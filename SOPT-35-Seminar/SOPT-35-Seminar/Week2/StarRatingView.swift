@@ -17,7 +17,6 @@ class StarRatingView: UIView {
         $0.axis = .horizontal
         $0.distribution = .fillEqually
         $0.spacing = 0
-        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
     init(starColor: UIColor) {
