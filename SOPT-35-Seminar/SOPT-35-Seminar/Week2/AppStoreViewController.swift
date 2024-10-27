@@ -23,19 +23,8 @@ class AppStoreViewController: UIViewController {
     private let appDescriptionView = AppDescriptionView()
     
     private let appNewsView = AppNewsView()
-    //MARK: - App Preview
-    private let previewView = UIView()
     
-    let previewLabel = UILabel().then {
-        $0.text = "미리 보기"
-        $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        $0.textColor = .black
-    }
-    
-    let previewImageView = UIImageView().then {
-        $0.image = UIImage(named: "tossPreview")
-    }
-    
+    private let appPreviewView = AppPreviewView()
     // MARK: - APP Info
     private let infoView = UIView()
     
@@ -179,12 +168,11 @@ class AppStoreViewController: UIViewController {
     func setUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        previewView.addSubviews(previewLabel, previewImageView)
         infoView.addSubviews(infoTitle, developerLabel, developerNameLabel, developerInfoButton)
         reviewView.addSubviews(reviewButton, reviewRateLabel, reviewNumberLabel, starRatingView, helpfulReviewLabel)
         reviewDetailView.addSubviews(reviewTitleLabel, detailStarRatingView, dateLabel, userLabel, reviewInfoLabel)
         reviewWriteView.addSubviews(reviewTapLabel, writeStarRatingView, reviewWriteButton, appSupportButton)
-        contentView.addSubviews(appDetailHeaderView, appDescriptionView, appNewsView, previewView, infoView, reviewView, reviewDetailView, reviewWriteView)
+        contentView.addSubviews(appDetailHeaderView, appDescriptionView, appNewsView, appPreviewView, infoView, reviewView, reviewDetailView, reviewWriteView)
     }
     
     func setLayout() {
@@ -208,25 +196,13 @@ class AppStoreViewController: UIViewController {
             $0.top.equalTo(appDescriptionView.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview()
         }
-        //MARK: - APP Preview Image Layout
-        previewView.snp.makeConstraints {
+        appPreviewView.snp.makeConstraints {
             $0.top.equalTo(appNewsView.snp.bottom).offset(20)
-            $0.leading.trailing.equalTo(contentView)
-            $0.bottom.equalTo(previewImageView).offset(10)
-        }
-        previewLabel.snp.makeConstraints {
-            $0.top.equalTo(previewView)
-            $0.leading.equalTo(previewView).offset(20)
-        }
-        previewImageView.snp.makeConstraints {
-            $0.top.equalTo(previewLabel.snp.bottom).offset(10)
-            $0.leading.equalTo(previewView).offset(20)
-            $0.trailing.equalTo(previewView).offset(-20)
-            $0.height.equalTo(previewImageView.snp.width).multipliedBy(16.0/9.0)
+            $0.leading.trailing.equalToSuperview()
         }
         // MARK: - APP Info Layout
         infoView.snp.makeConstraints {
-            $0.top.equalTo(previewView.snp.bottom).offset(20)
+            $0.top.equalTo(appPreviewView.snp.bottom).offset(20)
             $0.leading.trailing.equalTo(contentView)
             $0.bottom.equalTo(developerLabel)
         }
