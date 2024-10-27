@@ -18,40 +18,7 @@ class AppStoreViewController: UIViewController {
     }
     private let contentView = UIView()
     
-    // MARK: APP Details
-    let IconImageView = UIImageView().then {
-        $0.image = UIImage(named: "tossIcon")
-        $0.layer.borderWidth = 0.3
-        $0.layer.borderColor = UIColor.lightGray.cgColor
-        $0.layer.cornerRadius = 20
-    }
-    
-    let titleLabel = UILabel().then {
-        $0.text = "토스"
-        $0.font = .systemFont(ofSize: 16, weight: .bold)
-        $0.textAlignment = .center
-        $0.textColor = .black
-    }
-    
-    let subtitleLabel = UILabel().then {
-        $0.text = "금융이 쉬워진다"
-        $0.font = .systemFont(ofSize: 12, weight: .regular)
-        $0.textAlignment = .center
-        $0.textColor = .lightGray
-    }
-    
-    let openButton = UIButton().then {
-        $0.setTitle("열기", for: .normal)
-        $0.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .bold)
-        $0.backgroundColor = .tintColor
-        $0.layer.cornerRadius = 10
-    }
-    
-    let shareButton = UIButton().then {
-        $0.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
-        $0.tintColor = .tintColor
-    }
-    
+    private let appDetailHeaderView = AppDetailHeaderView()
     // MARK: - APP Description
     private let descriptionView = UIView()
     private let ratingView = UIView()
@@ -317,7 +284,7 @@ class AppStoreViewController: UIViewController {
         reviewView.addSubviews(reviewButton, reviewRateLabel, reviewNumberLabel, starRatingView, helpfulReviewLabel)
         reviewDetailView.addSubviews(reviewTitleLabel, detailStarRatingView, dateLabel, userLabel, reviewInfoLabel)
         reviewWriteView.addSubviews(reviewTapLabel, writeStarRatingView, reviewWriteButton, appSupportButton)
-        contentView.addSubviews(IconImageView, titleLabel, subtitleLabel, openButton, shareButton, descriptionView, newsView, previewView, infoView, reviewView, reviewDetailView, reviewWriteView)
+        contentView.addSubviews(appDetailHeaderView, descriptionView, newsView, previewView, infoView, reviewView, reviewDetailView, reviewWriteView)
     }
     
     func setLayout() {
@@ -329,35 +296,13 @@ class AppStoreViewController: UIViewController {
             $0.width.equalTo(scrollView.frameLayoutGuide)
             $0.bottom.equalTo(reviewWriteView.snp.bottom).offset(30)
         }
-        //MARK: - APP Details Layout
-        IconImageView.snp.makeConstraints {
-            $0.top.equalTo(contentView.snp.top).offset(20)
-            $0.leading.equalTo(contentView).offset(20)
-            $0.width.height.equalTo(80)
+        appDetailHeaderView.snp.makeConstraints {
+            $0.top.equalTo(contentView.snp.top).offset(5)
+            $0.leading.trailing.equalToSuperview()
         }
-        titleLabel.snp.makeConstraints {
-            $0.top.equalTo(IconImageView)
-            $0.leading.equalTo(IconImageView.snp.trailing).offset(20)
-        }
-        subtitleLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom)
-            $0.leading.equalTo(titleLabel)
-        }
-        openButton.snp.makeConstraints {
-            $0.leading.equalTo(titleLabel)
-            $0.bottom.equalTo(IconImageView.snp.bottom)
-            $0.height.equalTo(20)
-            $0.width.equalTo(50)
-        }
-        shareButton.snp.makeConstraints {
-            $0.bottom.equalTo(IconImageView.snp.bottom)
-            $0.width.height.equalTo(20)
-            $0.trailing.equalTo(contentView).offset(-20)
-        }
-        
         //MARK: - APP Description Layout
         ratingView.snp.makeConstraints {
-            $0.top.equalTo(openButton.snp.bottom).offset(30)
+            $0.top.equalTo(appDetailHeaderView.snp.bottom).offset(30)
             $0.leading.equalTo(contentView).offset(20)
             $0.width.equalTo((view.bounds.width - 40) * 0.33)
             $0.height.equalTo(60)
