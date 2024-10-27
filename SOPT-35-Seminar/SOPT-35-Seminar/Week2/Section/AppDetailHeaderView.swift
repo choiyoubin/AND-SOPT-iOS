@@ -11,11 +11,11 @@ import UIKit
 
 class AppDetailHeaderView: UIView {
 
-    let IconImageView = UIImageView()
-    let titleLabel = UILabel()
-    let subtitleLabel = UILabel()
-    let openButton = UIButton()
-    let shareButton = UIButton()
+    private let IconImageView = UIImageView()
+    private let titleLabel = UILabel()
+    private let subtitleLabel = UILabel()
+    private let openButton = UIButton()
+    private let shareButton = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

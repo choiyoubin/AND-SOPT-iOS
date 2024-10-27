@@ -19,70 +19,8 @@ class AppStoreViewController: UIViewController {
     private let contentView = UIView()
     
     private let appDetailHeaderView = AppDetailHeaderView()
-    // MARK: - APP Description
-    private let descriptionView = UIView()
-    private let ratingView = UIView()
     
-    let rateTitleLabel = UILabel().then {
-        $0.text = "8.4만개의 평가"
-        $0.font = .systemFont(ofSize: 10)
-        $0.textAlignment = .center
-        $0.textColor = .gray
-    }
-    
-    let rateLabel = UILabel().then {
-        $0.text = "4.4"
-        $0.font = .systemFont(ofSize: 16, weight: .bold)
-        $0.textAlignment = .center
-        $0.textColor = .gray
-    }
-    
-    let rateStarRatingView = StarRatingView(starColor: .gray)
-    
-    private let awardView = UIView()
-    
-    let awardTitleLabel = UILabel().then {
-        $0.text = "수상"
-        $0.font = .systemFont(ofSize: 10)
-        $0.textAlignment = .center
-        $0.textColor = .gray
-    }
-    
-    let awardImageview = UIImageView().then {
-        $0.image = UIImage(systemName: "person.fill")
-        $0.tintColor = .gray
-    }
-    
-    let awardCateLabel = UILabel().then {
-        $0.text = "앱"
-        $0.font = .systemFont(ofSize: 10)
-        $0.textAlignment = .center
-        $0.textColor = .gray
-    }
-    
-    private let ageView = UIView()
-    
-    let ageTitleLabel = UILabel().then {
-        $0.text = "연령"
-        $0.font = .systemFont(ofSize: 10)
-        $0.textAlignment = .center
-        $0.textColor = .gray
-    }
-    
-    let ageLabel = UILabel().then {
-        $0.text = "4+"
-        $0.font = .systemFont(ofSize: 16, weight: .bold)
-        $0.textAlignment = .center
-        $0.textColor = .gray
-    }
-    
-    let ageStandardLabel = UILabel().then {
-        $0.text = "세"
-        $0.font = .systemFont(ofSize: 10)
-        $0.textAlignment = .center
-        $0.textColor = .gray
-    }
-    
+    private let appDescriptionView = AppDescriptionView()
     // MARK: - APP news
     private let newsView = UIView()
     
@@ -274,17 +212,13 @@ class AppStoreViewController: UIViewController {
     func setUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        ratingView.addSubviews(rateLabel, rateTitleLabel, rateStarRatingView)
-        awardView.addSubviews(awardTitleLabel, awardImageview, awardCateLabel)
-        ageView.addSubviews(ageTitleLabel, ageLabel, ageStandardLabel)
-        descriptionView.addSubviews(ratingView, awardView, ageView)
         newsView.addSubviews(newsButton, versionLabel, timeLabel, newsLabel)
         previewView.addSubviews(previewLabel, previewImageView)
         infoView.addSubviews(infoTitle, developerLabel, developerNameLabel, developerInfoButton)
         reviewView.addSubviews(reviewButton, reviewRateLabel, reviewNumberLabel, starRatingView, helpfulReviewLabel)
         reviewDetailView.addSubviews(reviewTitleLabel, detailStarRatingView, dateLabel, userLabel, reviewInfoLabel)
         reviewWriteView.addSubviews(reviewTapLabel, writeStarRatingView, reviewWriteButton, appSupportButton)
-        contentView.addSubviews(appDetailHeaderView, descriptionView, newsView, previewView, infoView, reviewView, reviewDetailView, reviewWriteView)
+        contentView.addSubviews(appDetailHeaderView, appDescriptionView, newsView, previewView, infoView, reviewView, reviewDetailView, reviewWriteView)
     }
     
     func setLayout() {
@@ -300,72 +234,13 @@ class AppStoreViewController: UIViewController {
             $0.top.equalTo(contentView.snp.top).offset(5)
             $0.leading.trailing.equalToSuperview()
         }
-        //MARK: - APP Description Layout
-        ratingView.snp.makeConstraints {
+        appDescriptionView.snp.makeConstraints {
             $0.top.equalTo(appDetailHeaderView.snp.bottom).offset(30)
-            $0.leading.equalTo(contentView).offset(20)
-            $0.width.equalTo((view.bounds.width - 40) * 0.33)
-            $0.height.equalTo(60)
-        }
-        rateTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(ratingView)
-            $0.centerX.equalTo(ratingView)
-        }
-        rateLabel.snp.makeConstraints {
-            $0.centerX.equalTo(rateTitleLabel)
-            $0.centerY.equalTo(ratingView)
-        }
-        rateStarRatingView.snp.makeConstraints {
-            $0.centerX.equalTo(rateTitleLabel)
-            $0.bottom.equalTo(ratingView)
-            $0.height.equalTo(12)
-            $0.width.equalTo(60)
-        }
-        
-        awardView.snp.makeConstraints {
-            $0.top.equalTo(ratingView)
-            $0.centerX.equalTo(contentView)
-            $0.width.equalTo((view.bounds.width - 40) * 0.33)
-            $0.height.equalTo(60)
-        }
-        awardTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(awardView)
-            $0.centerX.equalTo(awardView)
-        }
-        awardImageview.snp.makeConstraints {
-            $0.centerX.centerY.equalTo(awardView)
-            $0.width.height.equalTo(20)
-        }
-        awardCateLabel.snp.makeConstraints {
-            $0.centerX.equalTo(awardView)
-            $0.bottom.equalTo(awardView)
-        }
-        
-        ageView.snp.makeConstraints {
-            $0.top.equalTo(ratingView)
-            $0.trailing.equalTo(contentView).offset(-20)
-            $0.width.equalTo((view.bounds.width - 40) * 0.33)
-            $0.height.equalTo(60)
-        }
-        ageTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(ageView)
-            $0.centerX.equalTo(ageView)
-        }
-        ageLabel.snp.makeConstraints {
-            $0.centerX.equalTo(ageTitleLabel)
-            $0.centerY.equalTo(ageView)
-        }
-        ageStandardLabel.snp.makeConstraints {
-            $0.centerX.equalTo(ageTitleLabel)
-            $0.bottom.equalTo(ageView)
-        }
-        descriptionView.snp.makeConstraints {
             $0.leading.trailing.equalTo(contentView).inset(20)
-            $0.top.bottom.equalTo(ratingView)
         }
         //MARK: - APP News Layout
         newsView.snp.makeConstraints {
-            $0.top.equalTo(ratingView.snp.bottom).offset(20)
+            $0.top.equalTo(appDescriptionView.snp.bottom).offset(20)
             $0.leading.trailing.equalTo(contentView)
             $0.height.greaterThanOrEqualTo(80)
         }

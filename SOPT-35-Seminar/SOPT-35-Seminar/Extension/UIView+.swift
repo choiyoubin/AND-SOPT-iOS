@@ -5,7 +5,6 @@
 //  Created by 최유빈 on 10/7/24.
 //
 
-import Foundation
 import UIKit
 
 // MARK: addSubViews
