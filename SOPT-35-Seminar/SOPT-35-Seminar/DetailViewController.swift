@@ -11,6 +11,7 @@ class DetailViewController: UIViewController {
     
     weak var delegate: NicknameDelegate?
     
+    // MARK: - Component 구성
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .semibold)
@@ -51,6 +52,7 @@ class DetailViewController: UIViewController {
         return textField
     }()
     
+    // MARK: - Function
     private var receivedTitle: String?
     private var receivedContent: String?
     var completionHandler: ((String) -> ())?
@@ -70,6 +72,7 @@ class DetailViewController: UIViewController {
         setLayout()
     }
     
+    // MARK: - UI
     private func setStyle() {
         self.view.backgroundColor = .white
     }
@@ -92,7 +95,6 @@ class DetailViewController: UIViewController {
         self.receivedContent = content
         updateUI()
       }
-    
 
     private func setLayout() {
         NSLayoutConstraint.activate([
