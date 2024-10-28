@@ -41,6 +41,7 @@
 		02B1A2612CCEA6CD00E91477 /* AppPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2602CCEA6CD00E91477 /* AppPreviewView.swift */; };
 		02B1A2632CCFA89800E91477 /* AppInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2622CCFA89800E91477 /* AppInfoView.swift */; };
 		02B1A2652CCFBA4900E91477 /* AppReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2642CCFBA4900E91477 /* AppReviewView.swift */; };
+		02B1A2672CCFDEDD00E91477 /* AppHelpfulReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2662CCFDEDD00E91477 /* AppHelpfulReviewView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		02B1A2602CCEA6CD00E91477 /* AppPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreviewView.swift; sourceTree = "<group>"; };
 		02B1A2622CCFA89800E91477 /* AppInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoView.swift; sourceTree = "<group>"; };
 		02B1A2642CCFBA4900E91477 /* AppReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReviewView.swift; sourceTree = "<group>"; };
+		02B1A2662CCFDEDD00E91477 /* AppHelpfulReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelpfulReviewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				02B1A2602CCEA6CD00E91477 /* AppPreviewView.swift */,
 				02B1A2622CCFA89800E91477 /* AppInfoView.swift */,
 				02B1A2642CCFBA4900E91477 /* AppReviewView.swift */,
+				02B1A2662CCFDEDD00E91477 /* AppHelpfulReviewView.swift */,
 			);
 			path = Section;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				02B1A20E2CB1019200E91477 /* AppDelegate.swift in Sources */,
 				02B1A2632CCFA89800E91477 /* AppInfoView.swift in Sources */,
 				02B1A25F2CCE932F00E91477 /* AppNewsView.swift in Sources */,
+				02B1A2672CCFDEDD00E91477 /* AppHelpfulReviewView.swift in Sources */,
 				02B1A2402CCBA40200E91477 /* reviewDetailViewController.swift in Sources */,
 				02B1A2102CB1019200E91477 /* SceneDelegate.swift in Sources */,
 				02B1A2522CCCC77D00E91477 /* Photo.swift in Sources */,

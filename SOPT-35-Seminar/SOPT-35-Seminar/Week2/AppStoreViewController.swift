@@ -30,48 +30,8 @@ class AppStoreViewController: UIViewController {
 
     private let appReviewView = AppReviewView()
 
-    let helpfulReviewLabel = UILabel().then {
-        $0.text = "가장 도움이 되는 리뷰"
-        $0.font = .systemFont(ofSize: 16, weight: .bold)
-        $0.textColor = .black
-    }
-    
-    //MARK: - App Review Detail
-    private let reviewDetailView = UIView().then {
-        $0.layer.cornerRadius = 10
-        $0.layer.borderWidth = 1.0
-        $0.layer.borderColor = UIColor.lightGray.cgColor
-        $0.layer.shadowColor = UIColor.black.cgColor
-        $0.layer.shadowOpacity = 0.5
-        $0.layer.shadowOffset = CGSize(width: 2, height: 2)
-        $0.layer.shadowRadius = 4
-        $0.layer.masksToBounds = false
-        $0.backgroundColor = .white
-    }
-    
-    let reviewTitleLabel = UILabel().then {
-        $0.text = "안녕하세요 안녕히가세요"
-        $0.font = .systemFont(ofSize: 16, weight: .semibold)
-        $0.textColor = .black
-    }
-    let detailStarRatingView = StarRatingView(starColor: .black)
-    let dateLabel = UILabel().then {
-        $0.text = "11월 17일 "
-        $0.font = .systemFont(ofSize: 12, weight: .regular)
-        $0.textColor = .lightGray
-    }
-    let userLabel = UILabel().then {
-        $0.text = "• 유비니"
-        $0.font = .systemFont(ofSize: 12, weight: .regular)
-        $0.textColor = .lightGray
-    }
-    let reviewInfoLabel = UILabel().then {
-        $0.text = "시기다른 래퍼들의 반대편을 바라보던 래퍼들의 배포 그건 백프로 다 개뻥 텐션업을 해야지 제대로"
-        $0.font = .systemFont(ofSize: 12, weight: .regular)
-        $0.textColor = .lightGray
-        $0.numberOfLines = 0
-    }
-    
+    private let appHelpfulReviewView = AppHelpfulReviewView()
+
     //MARK: - APP Review Write
     private let reviewWriteView = UIView()
     
@@ -122,9 +82,8 @@ class AppStoreViewController: UIViewController {
     func setUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        reviewDetailView.addSubviews(helpfulReviewLabel, reviewTitleLabel, detailStarRatingView, dateLabel, userLabel, reviewInfoLabel)
         reviewWriteView.addSubviews(reviewTapLabel, writeStarRatingView, reviewWriteButton, appSupportButton)
-        contentView.addSubviews(appDetailHeaderView, appDescriptionView, appNewsView, appPreviewView, appInfoView, appReviewView, reviewDetailView, reviewWriteView)
+        contentView.addSubviews(appDetailHeaderView, appDescriptionView, appNewsView, appPreviewView, appInfoView, appReviewView, appHelpfulReviewView, reviewWriteView)
     }
     
     func setLayout() {
@@ -168,43 +127,14 @@ class AppStoreViewController: UIViewController {
             $0.leading.trailing.equalToSuperview()
         }
         
-        helpfulReviewLabel.snp.makeConstraints {
+        appHelpfulReviewView.snp.makeConstraints {
             $0.top.equalTo(appReviewView.snp.bottom).offset(10)
-            $0.leading.equalTo(appReviewView).offset(20)
+            $0.leading.trailing.equalToSuperview()
         }
-        // MARK: - APP Review Detail Layout
-        reviewDetailView.snp.makeConstraints {
-            $0.top.equalTo(appReviewView.snp.bottom).offset(20)
-            $0.leading.trailing.equalTo(contentView).inset(20)
-            $0.bottom.equalTo(reviewInfoLabel).offset(20)
-        }
-        reviewTitleLabel.snp.makeConstraints {
-            $0.top.leading.equalTo(reviewDetailView).offset(20)
-        }
-        detailStarRatingView.snp.makeConstraints {
-            $0.top.equalTo(reviewTitleLabel.snp.bottom).offset(10)
-            $0.leading.equalTo(reviewTitleLabel)
-            $0.height.equalTo(12)
-            $0.width.equalTo(60)
-        }
-        dateLabel.snp.makeConstraints {
-            $0.top.equalTo(detailStarRatingView)
-            $0.leading.equalTo(detailStarRatingView.snp.trailing).offset(10)
-            $0.centerY.equalTo(detailStarRatingView)
-        }
-        userLabel.snp.makeConstraints {
-            $0.top.equalTo(detailStarRatingView)
-            $0.leading.equalTo(dateLabel.snp.trailing)
-            $0.centerY.equalTo(detailStarRatingView)
-        }
-        reviewInfoLabel.snp.makeConstraints {
-            $0.top.equalTo(detailStarRatingView.snp.bottom).offset(10)
-            $0.leading.equalTo(detailStarRatingView)
-            $0.trailing.equalTo(reviewDetailView.snp.trailing).offset(-20)
-        }
+
         // MARK: - APP Review Write Layout
         reviewWriteView.snp.makeConstraints {
-            $0.top.equalTo(reviewDetailView.snp.bottom).offset(20)
+            $0.top.equalTo(appHelpfulReviewView.snp.bottom).offset(20)
             $0.leading.trailing.equalTo(contentView)
             $0.bottom.equalTo(reviewWriteButton.snp.bottom).offset(20)
         }
