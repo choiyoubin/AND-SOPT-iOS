@@ -28,33 +28,8 @@ class AppStoreViewController: UIViewController {
     
     private let appInfoView = AppInfoView()
 
-    //MARK: - App Review
-    private let reviewView = UIView()
-    
-    private lazy var reviewButton = UIButton().then {
-        $0.invalidateIntrinsicContentSize()
-        $0.setTitle("평가 및 리뷰 ", for: .normal)
-        $0.setImage(UIImage(systemName: "chevron.right", withConfiguration: UIImage.SymbolConfiguration(pointSize: 12)), for: .normal)
-        $0.semanticContentAttribute = .forceRightToLeft
-        $0.contentHorizontalAlignment = .center
-        $0.contentVerticalAlignment = .center
-        $0.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        $0.titleLabel?.textAlignment = .left
-        $0.setTitleColor(.black, for: .normal)
-        $0.setImageTintColor(UIColor.darkGray)
-        $0.addTarget(self, action: #selector(reviewButtonTapped), for: .touchUpInside)
-    }
-    let reviewRateLabel = UILabel().then {
-        $0.text = "4.4"
-        $0.font = .systemFont(ofSize: 40, weight: .bold)
-        $0.textColor = .black
-    }
-    let reviewNumberLabel = UILabel().then {
-        $0.text = "8.4만개의 평가"
-        $0.font = .systemFont(ofSize: 16, weight: .regular)
-        $0.textColor = .darkGray
-    }
-    let starRatingView = StarRatingView(starColor: .black)
+    private let appReviewView = AppReviewView()
+
     let helpfulReviewLabel = UILabel().then {
         $0.text = "가장 도움이 되는 리뷰"
         $0.font = .systemFont(ofSize: 16, weight: .bold)
@@ -147,72 +122,59 @@ class AppStoreViewController: UIViewController {
     func setUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        reviewView.addSubviews(reviewButton, reviewRateLabel, reviewNumberLabel, starRatingView, helpfulReviewLabel)
-        reviewDetailView.addSubviews(reviewTitleLabel, detailStarRatingView, dateLabel, userLabel, reviewInfoLabel)
+        reviewDetailView.addSubviews(helpfulReviewLabel, reviewTitleLabel, detailStarRatingView, dateLabel, userLabel, reviewInfoLabel)
         reviewWriteView.addSubviews(reviewTapLabel, writeStarRatingView, reviewWriteButton, appSupportButton)
-        contentView.addSubviews(appDetailHeaderView, appDescriptionView, appNewsView, appPreviewView, appInfoView, reviewView, reviewDetailView, reviewWriteView)
+        contentView.addSubviews(appDetailHeaderView, appDescriptionView, appNewsView, appPreviewView, appInfoView, appReviewView, reviewDetailView, reviewWriteView)
     }
     
     func setLayout() {
         scrollView.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
+        
         contentView.snp.makeConstraints {
             $0.edges.equalTo(scrollView.contentLayoutGuide)
             $0.width.equalTo(scrollView.frameLayoutGuide)
             $0.bottom.equalTo(reviewWriteView.snp.bottom).offset(30)
         }
+        
         appDetailHeaderView.snp.makeConstraints {
             $0.top.equalTo(contentView.snp.top).offset(5)
             $0.leading.trailing.equalToSuperview()
         }
+        
         appDescriptionView.snp.makeConstraints {
             $0.top.equalTo(appDetailHeaderView.snp.bottom).offset(30)
             $0.leading.trailing.equalTo(contentView).inset(20)
         }
+        
         appNewsView.snp.makeConstraints {
             $0.top.equalTo(appDescriptionView.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview()
         }
+        
         appPreviewView.snp.makeConstraints {
             $0.top.equalTo(appNewsView.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview()
         }
-        // MARK: - APP Info Layout
+        
         appInfoView.snp.makeConstraints {
             $0.top.equalTo(appPreviewView.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview()
         }
-
-        //MARK: - App Review Layout
-        reviewView.snp.makeConstraints {
+        
+        appReviewView.snp.makeConstraints {
             $0.top.equalTo(appInfoView.snp.bottom).offset(20)
-            $0.leading.trailing.equalTo(contentView)
-            $0.bottom.equalTo(helpfulReviewLabel)
+            $0.leading.trailing.equalToSuperview()
         }
-        reviewButton.snp.makeConstraints {
-            $0.top.equalTo(reviewView)
-            $0.leading.equalTo(reviewView).offset(20)
-        }
-        reviewRateLabel.snp.makeConstraints {
-            $0.top.equalTo(reviewButton.snp.bottom)
-            $0.leading.equalTo(reviewButton)
-        }
-        reviewNumberLabel.snp.makeConstraints {
-            $0.bottom.equalTo(reviewRateLabel.snp.bottom)
-            $0.trailing.equalTo(reviewView).offset(-20)
-        }
-        starRatingView.snp.makeConstraints {
-            $0.bottom.equalTo(reviewNumberLabel.snp.top)
-            $0.trailing.equalTo(reviewNumberLabel)
-        }
+        
         helpfulReviewLabel.snp.makeConstraints {
-            $0.top.equalTo(reviewRateLabel.snp.bottom).offset(10)
-            $0.leading.equalTo(reviewButton)
+            $0.top.equalTo(appReviewView.snp.bottom).offset(10)
+            $0.leading.equalTo(appReviewView).offset(20)
         }
         // MARK: - APP Review Detail Layout
         reviewDetailView.snp.makeConstraints {
-            $0.top.equalTo(reviewView.snp.bottom).offset(20)
+            $0.top.equalTo(appReviewView.snp.bottom).offset(20)
             $0.leading.trailing.equalTo(contentView).inset(20)
             $0.bottom.equalTo(reviewInfoLabel).offset(20)
         }
@@ -285,6 +247,11 @@ class AppStoreViewController: UIViewController {
         appNewsView.newsButton.addTarget(
             self,
             action: #selector(newsButtonTapped),
+            for: .touchUpInside
+        )
+        appReviewView.reviewButton.addTarget(
+            self,
+            action: #selector(reviewButtonTapped),
             for: .touchUpInside
         )
     }
