@@ -25,30 +25,9 @@ class AppStoreViewController: UIViewController {
     private let appNewsView = AppNewsView()
     
     private let appPreviewView = AppPreviewView()
-    // MARK: - APP Info
-    private let infoView = UIView()
     
-    let infoTitle = UILabel().then {
-        $0.text = "토스뱅크, 토스증권 서비스를 이용하시려면 토스 앱 설치가 필요합니다."
-        $0.numberOfLines = 0
-        $0.font = .systemFont(ofSize: 12, weight: .regular)
-        $0.textColor = .black
-    }
-    let developerNameLabel = UILabel().then {
-        $0.text = "Viva Republica"
-        $0.font = .systemFont(ofSize: 12, weight: .regular)
-        $0.textColor = .tintColor
-    }
-    let developerLabel = UILabel().then {
-        $0.text = "개발자"
-        $0.font = .systemFont(ofSize: 12, weight: .regular)
-        $0.textColor = .lightGray
-    }
-    let developerInfoButton = UIButton().then {
-        $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
-        $0.tintColor = .gray
-    }
-    
+    private let appInfoView = AppInfoView()
+
     //MARK: - App Review
     private let reviewView = UIView()
     
@@ -168,11 +147,10 @@ class AppStoreViewController: UIViewController {
     func setUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        infoView.addSubviews(infoTitle, developerLabel, developerNameLabel, developerInfoButton)
         reviewView.addSubviews(reviewButton, reviewRateLabel, reviewNumberLabel, starRatingView, helpfulReviewLabel)
         reviewDetailView.addSubviews(reviewTitleLabel, detailStarRatingView, dateLabel, userLabel, reviewInfoLabel)
         reviewWriteView.addSubviews(reviewTapLabel, writeStarRatingView, reviewWriteButton, appSupportButton)
-        contentView.addSubviews(appDetailHeaderView, appDescriptionView, appNewsView, appPreviewView, infoView, reviewView, reviewDetailView, reviewWriteView)
+        contentView.addSubviews(appDetailHeaderView, appDescriptionView, appNewsView, appPreviewView, appInfoView, reviewView, reviewDetailView, reviewWriteView)
     }
     
     func setLayout() {
@@ -201,30 +179,14 @@ class AppStoreViewController: UIViewController {
             $0.leading.trailing.equalToSuperview()
         }
         // MARK: - APP Info Layout
-        infoView.snp.makeConstraints {
+        appInfoView.snp.makeConstraints {
             $0.top.equalTo(appPreviewView.snp.bottom).offset(20)
-            $0.leading.trailing.equalTo(contentView)
-            $0.bottom.equalTo(developerLabel)
+            $0.leading.trailing.equalToSuperview()
         }
-        infoTitle.snp.makeConstraints {
-            $0.top.equalTo(infoView)
-            $0.leading.trailing.equalTo(infoView).inset(20)
-        }
-        developerNameLabel.snp.makeConstraints {
-            $0.top.equalTo(infoTitle.snp.bottom).offset(10)
-            $0.leading.equalTo(infoTitle)
-        }
-        developerLabel.snp.makeConstraints {
-            $0.top.equalTo(developerNameLabel.snp.bottom)
-            $0.leading.equalTo(infoTitle)
-        }
-        developerInfoButton.snp.makeConstraints {
-            $0.top.equalTo(developerNameLabel)
-            $0.trailing.equalTo(infoView).inset(20)
-        }
+
         //MARK: - App Review Layout
         reviewView.snp.makeConstraints {
-            $0.top.equalTo(infoView.snp.bottom).offset(20)
+            $0.top.equalTo(appInfoView.snp.bottom).offset(20)
             $0.leading.trailing.equalTo(contentView)
             $0.bottom.equalTo(helpfulReviewLabel)
         }
