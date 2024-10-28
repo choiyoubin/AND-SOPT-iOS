@@ -21,8 +21,20 @@ class TossEntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setStyle()
+        setUI()
+        setLayout()
+    }
+    
+    func setStyle() {
         self.view.backgroundColor = .white
+    }
+    
+    func setUI() {
         self.view.addSubview(entryButton)
+    }
+    
+    func setLayout() {
         entryButton.snp.makeConstraints {
             $0.center.equalToSuperview()
             $0.width.equalTo(200)

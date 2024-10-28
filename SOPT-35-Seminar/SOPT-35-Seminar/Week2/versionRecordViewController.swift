@@ -20,11 +20,22 @@ class versionRecordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setStyle()
+        setUI()
+        setLayout()
+    }
+    
+    func setStyle() {
         self.view.backgroundColor = .white
+    }
+    
+    func setUI() {
         self.view.addSubview(titleLabel)
+    }
+    
+    func setLayout() {
         titleLabel.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
-        
     }
 }

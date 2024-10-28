@@ -9,7 +9,7 @@ import UIKit
 
 class reviewDetailViewController: UIViewController {
 
-    let titleLabel = UILabel().then {
+    private let titleLabel = UILabel().then {
         $0.text = "리뷰 모두 보기 페이지"
         $0.font = .systemFont(ofSize: 30, weight: .bold)
         $0.textColor = .tintColor
@@ -18,11 +18,22 @@ class reviewDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setStyle()
+        setUI()
+        setLayout()
+    }
+    
+    func setStyle() {
         self.view.backgroundColor = .white
+    }
+    
+    func setUI() {
         self.view.addSubview(titleLabel)
+    }
+    
+    func setLayout() {
         titleLabel.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
-
     }
 }

@@ -19,6 +19,8 @@ class AppReviewView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        backgroundColor = .white
+        
         setStyle()
         setUI()
         setLayout()

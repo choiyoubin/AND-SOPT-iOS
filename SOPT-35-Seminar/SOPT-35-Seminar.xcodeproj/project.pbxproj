@@ -42,6 +42,7 @@
 		02B1A2632CCFA89800E91477 /* AppInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2622CCFA89800E91477 /* AppInfoView.swift */; };
 		02B1A2652CCFBA4900E91477 /* AppReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2642CCFBA4900E91477 /* AppReviewView.swift */; };
 		02B1A2672CCFDEDD00E91477 /* AppHelpfulReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2662CCFDEDD00E91477 /* AppHelpfulReviewView.swift */; };
+		02B1A2692CCFEACE00E91477 /* AppReviewWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2682CCFEACE00E91477 /* AppReviewWriteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		02B1A2622CCFA89800E91477 /* AppInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoView.swift; sourceTree = "<group>"; };
 		02B1A2642CCFBA4900E91477 /* AppReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReviewView.swift; sourceTree = "<group>"; };
 		02B1A2662CCFDEDD00E91477 /* AppHelpfulReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelpfulReviewView.swift; sourceTree = "<group>"; };
+		02B1A2682CCFEACE00E91477 /* AppReviewWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReviewWriteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 				02B1A2622CCFA89800E91477 /* AppInfoView.swift */,
 				02B1A2642CCFBA4900E91477 /* AppReviewView.swift */,
 				02B1A2662CCFDEDD00E91477 /* AppHelpfulReviewView.swift */,
+				02B1A2682CCFEACE00E91477 /* AppReviewWriteView.swift */,
 			);
 			path = Section;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				02B1A25C2CCE479B00E91477 /* UIStackView+.swift in Sources */,
 				02B1A2542CCCC83300E91477 /* PhotoCell.swift in Sources */,
 				02B1A2652CCFBA4900E91477 /* AppReviewView.swift in Sources */,
+				02B1A2692CCFEACE00E91477 /* AppReviewWriteView.swift in Sources */,
 				02B1A23C2CCB8A8F00E91477 /* StarRatingView.swift in Sources */,
 				02B1A25A2CCE41A900E91477 /* AppDescriptionView.swift in Sources */,
 				02B1A23A2CCB673E00E91477 /* versionRecordViewController.swift in Sources */,
