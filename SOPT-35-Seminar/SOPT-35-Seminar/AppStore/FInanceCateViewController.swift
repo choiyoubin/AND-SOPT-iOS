@@ -119,9 +119,6 @@ extension FInanceCateViewController: UICollectionViewDataSource {
                 headerView.bindTitle(title: "")
             case .essential:
                 headerView.bindTitle(title: titleLists[0])
-                headerView.onTitleButtonTap = { [weak self] in
-                    self?.pushToChartViewController(for: .essential)
-                }
             case .paid:
                 headerView.bindTitle(title: titleLists[1])
                 headerView.onTitleButtonTap = { [weak self] in
