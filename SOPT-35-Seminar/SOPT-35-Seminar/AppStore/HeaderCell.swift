@@ -64,6 +64,6 @@ class HeaderCell: UICollectionViewCell {
     }
     
     func bindTitle(title: String) {
-        self.titleButton.titleLabel?.text = title
+        self.titleButton.setTitle(title, for: .normal)
     }
 }

@@ -12,6 +12,8 @@ struct CompositionalLayout {
     static func createLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { (sectionNumber, _) -> NSCollectionLayoutSection? in
             
+            let section: NSCollectionLayoutSection
+            
             if sectionNumber == 0 {
                 
                 let item = NSCollectionLayoutItem(
@@ -29,11 +31,10 @@ struct CompositionalLayout {
                     subitems: [item]
                 )
                 
-                let section = NSCollectionLayoutSection(group: group)
-                
+                section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .paging
                 
-                return section
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0)
                 
             } else {
                 
@@ -47,28 +48,30 @@ struct CompositionalLayout {
                 let group = NSCollectionLayoutGroup.horizontal(
                     layoutSize: .init(
                         widthDimension: .fractionalWidth(1),
-                        heightDimension: .absolute(400)
+                        heightDimension: .absolute(210)
                     ),
                     subitems: [item]
                 )
                 
-                let section = NSCollectionLayoutSection(group: group)
-                
+                section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .paging
                 
                 let headerSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1.0),
-                    heightDimension: .estimated(120)
+                    heightDimension: .estimated(50)
                 )
                 let header = NSCollectionLayoutBoundarySupplementaryItem(
                     layoutSize: headerSize,
                     elementKind: UICollectionView.elementKindSectionHeader,
                     alignment: .top
                 )
+                
                 section.boundarySupplementaryItems = [header]
                 
-                return section
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0)
+    
             }
+            return section
         }
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 
 enum FinanceSection: Int, CaseIterable {
     case main = 0
-    case essetial
+    case essential
     case paid
     case free
     

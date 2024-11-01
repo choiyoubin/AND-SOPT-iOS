@@ -128,7 +128,7 @@ class MainCell: UICollectionViewCell {
         }
         appInfoLabel.snp.makeConstraints {
             $0.leading.equalTo(appMiniTitleLabel.snp.leading)
-            $0.top.equalTo(appMiniTitleLabel.snp.bottom).offset(4)
+            $0.top.equalTo(appLogoImageView.snp.centerY)
         }
         appDownloadButton.snp.makeConstraints {
             $0.trailing.equalTo(mainImageView).offset(-10)

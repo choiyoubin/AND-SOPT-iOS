@@ -29,7 +29,7 @@
 		02B1A2462CCCB4D300E91477 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2452CCCB4D300E91477 /* ChartViewController.swift */; };
 		02B1A2482CCCB59B00E91477 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2472CCCB59B00E91477 /* App.swift */; };
 		02B1A24A2CCCB64300E91477 /* DownloadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2492CCCB64300E91477 /* DownloadState.swift */; };
-		02B1A24C2CCCB81100E91477 /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A24B2CCCB81100E91477 /* ChartCell.swift */; };
+		02B1A24C2CCCB81100E91477 /* FreeChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A24B2CCCB81100E91477 /* FreeChartCell.swift */; };
 		02B1A24F2CCCC5FD00E91477 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A24E2CCCC5FD00E91477 /* PhotoViewController.swift */; };
 		02B1A2522CCCC77D00E91477 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2512CCCC77D00E91477 /* Photo.swift */; };
 		02B1A2542CCCC83300E91477 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2532CCCC83300E91477 /* PhotoCell.swift */; };
@@ -50,6 +50,12 @@
 		02B1A2762CD3F45E00E91477 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2752CD3F45E00E91477 /* MainModel.swift */; };
 		02B1A2782CD3FA7D00E91477 /* ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2772CD3FA7D00E91477 /* ClassName.swift */; };
 		02B1A27A2CD3FBF100E91477 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2792CD3FBF100E91477 /* HeaderCell.swift */; };
+		02B1A27C2CD473A600E91477 /* PaidChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A27B2CD473A600E91477 /* PaidChartCell.swift */; };
+		02B1A27E2CD47ED400E91477 /* FreeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A27D2CD47ED400E91477 /* FreeCollectionViewCell.swift */; };
+		02B1A2802CD4842800E91477 /* FinanceChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A27F2CD4842800E91477 /* FinanceChartCell.swift */; };
+		02B1A2822CD48B7C00E91477 /* PaidCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2812CD48B7C00E91477 /* PaidCollectionViewCell.swift */; };
+		02B1A2842CD48D1D00E91477 /* EssentialChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2832CD48D1D00E91477 /* EssentialChartCell.swift */; };
+		02B1A2862CD48EAB00E91477 /* EssentialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2852CD48EAB00E91477 /* EssentialCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +81,7 @@
 		02B1A2452CCCB4D300E91477 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		02B1A2472CCCB59B00E91477 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		02B1A2492CCCB64300E91477 /* DownloadState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadState.swift; sourceTree = "<group>"; };
-		02B1A24B2CCCB81100E91477 /* ChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
+		02B1A24B2CCCB81100E91477 /* FreeChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeChartCell.swift; sourceTree = "<group>"; };
 		02B1A24E2CCCC5FD00E91477 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		02B1A2512CCCC77D00E91477 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		02B1A2532CCCC83300E91477 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
@@ -96,6 +102,12 @@
 		02B1A2752CD3F45E00E91477 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		02B1A2772CD3FA7D00E91477 /* ClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassName.swift; sourceTree = "<group>"; };
 		02B1A2792CD3FBF100E91477 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		02B1A27B2CD473A600E91477 /* PaidChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidChartCell.swift; sourceTree = "<group>"; };
+		02B1A27D2CD47ED400E91477 /* FreeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeCollectionViewCell.swift; sourceTree = "<group>"; };
+		02B1A27F2CD4842800E91477 /* FinanceChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceChartCell.swift; sourceTree = "<group>"; };
+		02B1A2812CD48B7C00E91477 /* PaidCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidCollectionViewCell.swift; sourceTree = "<group>"; };
+		02B1A2832CD48D1D00E91477 /* EssentialChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialChartCell.swift; sourceTree = "<group>"; };
+		02B1A2852CD48EAB00E91477 /* EssentialCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +145,6 @@
 				02B1A26E2CD3DE5B00E91477 /* AppStore */,
 				02B1A2552CCE379700E91477 /* Week2 */,
 				02B1A2502CCCC60100E91477 /* CollectionView */,
-				02B1A24D2CCCB99800E91477 /* TableView */,
 				02B1A2262CB4285600E91477 /* Extension */,
 				02B1A20D2CB1019200E91477 /* AppDelegate.swift */,
 				02B1A20F2CB1019200E91477 /* SceneDelegate.swift */,
@@ -166,7 +177,10 @@
 				02B1A2452CCCB4D300E91477 /* ChartViewController.swift */,
 				02B1A2472CCCB59B00E91477 /* App.swift */,
 				02B1A2492CCCB64300E91477 /* DownloadState.swift */,
-				02B1A24B2CCCB81100E91477 /* ChartCell.swift */,
+				02B1A24B2CCCB81100E91477 /* FreeChartCell.swift */,
+				02B1A27B2CD473A600E91477 /* PaidChartCell.swift */,
+				02B1A27F2CD4842800E91477 /* FinanceChartCell.swift */,
+				02B1A2832CD48D1D00E91477 /* EssentialChartCell.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -213,6 +227,7 @@
 		02B1A26E2CD3DE5B00E91477 /* AppStore */ = {
 			isa = PBXGroup;
 			children = (
+				02B1A24D2CCCB99800E91477 /* TableView */,
 				02B1A26A2CD3D22700E91477 /* FInanceCateViewController.swift */,
 				02B1A26C2CD3D48E00E91477 /* CompositionalLayout.swift */,
 				02B1A26F2CD3DE9400E91477 /* FinanceSection.swift */,
@@ -220,6 +235,9 @@
 				02B1A2732CD3E4D700E91477 /* MainCell.swift */,
 				02B1A2752CD3F45E00E91477 /* MainModel.swift */,
 				02B1A2792CD3FBF100E91477 /* HeaderCell.swift */,
+				02B1A27D2CD47ED400E91477 /* FreeCollectionViewCell.swift */,
+				02B1A2812CD48B7C00E91477 /* PaidCollectionViewCell.swift */,
+				02B1A2852CD48EAB00E91477 /* EssentialCollectionViewCell.swift */,
 			);
 			path = AppStore;
 			sourceTree = "<group>";
@@ -310,6 +328,8 @@
 				02B1A2762CD3F45E00E91477 /* MainModel.swift in Sources */,
 				02B1A2612CCEA6CD00E91477 /* AppPreviewView.swift in Sources */,
 				02B1A20E2CB1019200E91477 /* AppDelegate.swift in Sources */,
+				02B1A2822CD48B7C00E91477 /* PaidCollectionViewCell.swift in Sources */,
+				02B1A2842CD48D1D00E91477 /* EssentialChartCell.swift in Sources */,
 				02B1A2632CCFA89800E91477 /* AppInfoView.swift in Sources */,
 				02B1A25F2CCE932F00E91477 /* AppNewsView.swift in Sources */,
 				02B1A2672CCFDEDD00E91477 /* AppHelpfulReviewView.swift in Sources */,
@@ -322,17 +342,20 @@
 				02B1A2542CCCC83300E91477 /* PhotoCell.swift in Sources */,
 				02B1A2652CCFBA4900E91477 /* AppReviewView.swift in Sources */,
 				02B1A2782CD3FA7D00E91477 /* ClassName.swift in Sources */,
+				02B1A2862CD48EAB00E91477 /* EssentialCollectionViewCell.swift in Sources */,
 				02B1A26D2CD3D48E00E91477 /* CompositionalLayout.swift in Sources */,
 				02B1A2692CCFEACE00E91477 /* AppReviewWriteView.swift in Sources */,
 				02B1A23C2CCB8A8F00E91477 /* StarRatingView.swift in Sources */,
 				02B1A25A2CCE41A900E91477 /* AppDescriptionView.swift in Sources */,
+				02B1A27E2CD47ED400E91477 /* FreeCollectionViewCell.swift in Sources */,
+				02B1A27C2CD473A600E91477 /* PaidChartCell.swift in Sources */,
 				02B1A23A2CCB673E00E91477 /* versionRecordViewController.swift in Sources */,
 				02B1A2342CC409D800E91477 /* AppStoreViewController.swift in Sources */,
 				02B1A23E2CCBA27800E91477 /* WriteStarRatingView.swift in Sources */,
 				02B1A2222CB1149500E91477 /* DetailViewController.swift in Sources */,
 				02B1A2322CBA59D400E91477 /* ColorViewController.swift in Sources */,
 				02B1A27A2CD3FBF100E91477 /* HeaderCell.swift in Sources */,
-				02B1A24C2CCCB81100E91477 /* ChartCell.swift in Sources */,
+				02B1A24C2CCCB81100E91477 /* FreeChartCell.swift in Sources */,
 				02B1A2702CD3DE9400E91477 /* FinanceSection.swift in Sources */,
 				02B1A2282CB4286800E91477 /* UIView+.swift in Sources */,
 				02B1A24A2CCCB64300E91477 /* DownloadState.swift in Sources */,
@@ -341,6 +364,7 @@
 				02B1A24F2CCCC5FD00E91477 /* PhotoViewController.swift in Sources */,
 				02B1A2462CCCB4D300E91477 /* ChartViewController.swift in Sources */,
 				02B1A2582CCE3A0100E91477 /* AppDetailHeaderView.swift in Sources */,
+				02B1A2802CD4842800E91477 /* FinanceChartCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
