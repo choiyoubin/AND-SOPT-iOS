@@ -57,6 +57,8 @@
 		02B1A2842CD48D1D00E91477 /* EssentialChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2832CD48D1D00E91477 /* EssentialChartCell.swift */; };
 		02B1A2862CD48EAB00E91477 /* EssentialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2852CD48EAB00E91477 /* EssentialCollectionViewCell.swift */; };
 		02B1A28A2CD4D61700E91477 /* PreviewImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2892CD4D61700E91477 /* PreviewImageCell.swift */; };
+		02B1A28C2CD4ED7D00E91477 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A28B2CD4ED7D00E91477 /* ReviewCell.swift */; };
+		02B1A28E2CD4EDCB00E91477 /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A28D2CD4EDCB00E91477 /* ReviewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +112,8 @@
 		02B1A2832CD48D1D00E91477 /* EssentialChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialChartCell.swift; sourceTree = "<group>"; };
 		02B1A2852CD48EAB00E91477 /* EssentialCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialCollectionViewCell.swift; sourceTree = "<group>"; };
 		02B1A2892CD4D61700E91477 /* PreviewImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageCell.swift; sourceTree = "<group>"; };
+		02B1A28B2CD4ED7D00E91477 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		02B1A28D2CD4EDCB00E91477 /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +237,8 @@
 				02B1A2812CD48B7C00E91477 /* PaidCollectionViewCell.swift */,
 				02B1A2852CD48EAB00E91477 /* EssentialCollectionViewCell.swift */,
 				02B1A2892CD4D61700E91477 /* PreviewImageCell.swift */,
+				02B1A28B2CD4ED7D00E91477 /* ReviewCell.swift */,
+				02B1A28D2CD4EDCB00E91477 /* ReviewModel.swift */,
 			);
 			path = AppStore;
 			sourceTree = "<group>";
@@ -318,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02B1A2122CB1019200E91477 /* ViewController.swift in Sources */,
+				02B1A28E2CD4EDCB00E91477 /* ReviewModel.swift in Sources */,
 				02B1A2722CD3E14B00E91477 /* FInanceCateView.swift in Sources */,
 				02B1A28A2CD4D61700E91477 /* PreviewImageCell.swift in Sources */,
 				02B1A2742CD3E4D700E91477 /* MainCell.swift in Sources */,
@@ -348,6 +355,7 @@
 				02B1A23A2CCB673E00E91477 /* versionRecordViewController.swift in Sources */,
 				02B1A2342CC409D800E91477 /* AppStoreViewController.swift in Sources */,
 				02B1A23E2CCBA27800E91477 /* WriteStarRatingView.swift in Sources */,
+				02B1A28C2CD4ED7D00E91477 /* ReviewCell.swift in Sources */,
 				02B1A2222CB1149500E91477 /* DetailViewController.swift in Sources */,
 				02B1A2322CBA59D400E91477 /* ColorViewController.swift in Sources */,
 				02B1A27A2CD3FBF100E91477 /* HeaderCell.swift in Sources */,
