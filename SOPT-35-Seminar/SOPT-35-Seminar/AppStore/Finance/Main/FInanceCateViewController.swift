@@ -23,6 +23,7 @@ class FInanceCateViewController: UIViewController, UICollectionViewDelegate {
 
         setDelegate()
         setRegister()
+        configureNavigationBar()
     }
     
     private func setDelegate() {
@@ -41,7 +42,13 @@ class FInanceCateViewController: UIViewController, UICollectionViewDelegate {
     private func pushToChartViewController(for section: FinanceSection) {
             let nextViewController = ChartViewController()
             navigationController?.pushViewController(nextViewController, animated: true)
-        }
+    }
+    
+    private func configureNavigationBar() {
+        title = "금융"
+        
+        navigationItem.backButtonTitle = "금융"
+    }
 }
 
 extension FInanceCateViewController: UICollectionViewDataSource {

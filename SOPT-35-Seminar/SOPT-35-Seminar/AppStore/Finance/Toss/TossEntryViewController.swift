@@ -12,7 +12,7 @@ import SnapKit
 class TossEntryViewController: UIViewController {
 
     private lazy var entryButton = UIButton().then {
-        $0.setTitle("토스 정보 보기", for: .normal)
+        $0.setTitle("금융 정보 보기", for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.addTarget(self, action: #selector(tossEntryTap), for: .touchUpInside)
         $0.backgroundColor = .tintColor
@@ -24,6 +24,7 @@ class TossEntryViewController: UIViewController {
         setStyle()
         setUI()
         setLayout()
+        configureNavigationBar()
     }
     
     func setStyle() {
@@ -42,8 +43,12 @@ class TossEntryViewController: UIViewController {
         }
     }
     
+    private func configureNavigationBar() {
+        navigationItem.backButtonTitle = "앱"
+    }
+    
     @objc func tossEntryTap() {
-        let nextViewController = AppStoreViewController()
+        let nextViewController = FInanceCateViewController()
         
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }

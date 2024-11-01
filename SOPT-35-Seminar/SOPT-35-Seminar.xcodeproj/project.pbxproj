@@ -149,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				02B1A26E2CD3DE5B00E91477 /* AppStore */,
-				02B1A2552CCE379700E91477 /* Week2 */,
 				02B1A2502CCCC60100E91477 /* CollectionView */,
 				02B1A2262CB4285600E91477 /* Extension */,
 				02B1A20D2CB1019200E91477 /* AppDelegate.swift */,
@@ -187,20 +186,6 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
-		02B1A2552CCE379700E91477 /* Week2 */ = {
-			isa = PBXGroup;
-			children = (
-				02B1A2562CCE39BB00E91477 /* Section */,
-				02B1A2332CC409D800E91477 /* AppStoreViewController.swift */,
-				02B1A2392CCB673E00E91477 /* versionRecordViewController.swift */,
-				02B1A23B2CCB8A8F00E91477 /* StarRatingView.swift */,
-				02B1A23D2CCBA27700E91477 /* WriteStarRatingView.swift */,
-				02B1A23F2CCBA40200E91477 /* reviewDetailViewController.swift */,
-				02B1A2432CCBD01000E91477 /* TossEntryViewController.swift */,
-			);
-			path = Week2;
-			sourceTree = "<group>";
-		};
 		02B1A2562CCE39BB00E91477 /* Section */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,28 +204,107 @@
 		02B1A26E2CD3DE5B00E91477 /* AppStore */ = {
 			isa = PBXGroup;
 			children = (
-				02B1A2452CCCB4D300E91477 /* ChartViewController.swift */,
-				02B1A2472CCCB59B00E91477 /* App.swift */,
-				02B1A2492CCCB64300E91477 /* DownloadState.swift */,
-				02B1A24B2CCCB81100E91477 /* FreeChartCell.swift */,
-				02B1A27B2CD473A600E91477 /* PaidChartCell.swift */,
-				02B1A27F2CD4842800E91477 /* FinanceChartCell.swift */,
-				02B1A2832CD48D1D00E91477 /* EssentialChartCell.swift */,
-				02B1A26A2CD3D22700E91477 /* FInanceCateViewController.swift */,
-				02B1A26C2CD3D48E00E91477 /* CompositionalLayout.swift */,
-				02B1A26F2CD3DE9400E91477 /* FinanceSection.swift */,
-				02B1A2712CD3E14B00E91477 /* FInanceCateView.swift */,
-				02B1A2732CD3E4D700E91477 /* MainCell.swift */,
-				02B1A2752CD3F45E00E91477 /* MainModel.swift */,
-				02B1A2792CD3FBF100E91477 /* HeaderCell.swift */,
-				02B1A27D2CD47ED400E91477 /* FreeCollectionViewCell.swift */,
-				02B1A2812CD48B7C00E91477 /* PaidCollectionViewCell.swift */,
-				02B1A2852CD48EAB00E91477 /* EssentialCollectionViewCell.swift */,
+				02B1A28F2CD5101600E91477 /* Finance */,
 				02B1A2892CD4D61700E91477 /* PreviewImageCell.swift */,
 				02B1A28B2CD4ED7D00E91477 /* ReviewCell.swift */,
 				02B1A28D2CD4EDCB00E91477 /* ReviewModel.swift */,
 			);
 			path = AppStore;
+			sourceTree = "<group>";
+		};
+		02B1A28F2CD5101600E91477 /* Finance */ = {
+			isa = PBXGroup;
+			children = (
+				02B1A2962CD510B700E91477 /* Toss */,
+				02B1A26C2CD3D48E00E91477 /* CompositionalLayout.swift */,
+				02B1A2472CCCB59B00E91477 /* App.swift */,
+				02B1A2492CCCB64300E91477 /* DownloadState.swift */,
+				02B1A26F2CD3DE9400E91477 /* FinanceSection.swift */,
+				02B1A2932CD5103400E91477 /* Chart */,
+				02B1A2922CD5103000E91477 /* Main */,
+			);
+			path = Finance;
+			sourceTree = "<group>";
+		};
+		02B1A2902CD5101D00E91477 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				02B1A2752CD3F45E00E91477 /* MainModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		02B1A2912CD5102200E91477 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				02B1A2792CD3FBF100E91477 /* HeaderCell.swift */,
+				02B1A2732CD3E4D700E91477 /* MainCell.swift */,
+				02B1A24B2CCCB81100E91477 /* FreeChartCell.swift */,
+				02B1A27B2CD473A600E91477 /* PaidChartCell.swift */,
+				02B1A2832CD48D1D00E91477 /* EssentialChartCell.swift */,
+				02B1A27D2CD47ED400E91477 /* FreeCollectionViewCell.swift */,
+				02B1A2812CD48B7C00E91477 /* PaidCollectionViewCell.swift */,
+				02B1A2852CD48EAB00E91477 /* EssentialCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		02B1A2922CD5103000E91477 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				02B1A26A2CD3D22700E91477 /* FInanceCateViewController.swift */,
+				02B1A2712CD3E14B00E91477 /* FInanceCateView.swift */,
+				02B1A2902CD5101D00E91477 /* Model */,
+				02B1A2912CD5102200E91477 /* Cell */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		02B1A2932CD5103400E91477 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				02B1A2452CCCB4D300E91477 /* ChartViewController.swift */,
+				02B1A2952CD5104C00E91477 /* Cell */,
+				02B1A2942CD5104100E91477 /* Model */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		02B1A2942CD5104100E91477 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		02B1A2952CD5104C00E91477 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				02B1A27F2CD4842800E91477 /* FinanceChartCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		02B1A2962CD510B700E91477 /* Toss */ = {
+			isa = PBXGroup;
+			children = (
+				02B1A23F2CCBA40200E91477 /* reviewDetailViewController.swift */,
+				02B1A2432CCBD01000E91477 /* TossEntryViewController.swift */,
+				02B1A2972CD510D600E91477 /* Component */,
+				02B1A2332CC409D800E91477 /* AppStoreViewController.swift */,
+				02B1A2392CCB673E00E91477 /* versionRecordViewController.swift */,
+				02B1A2562CCE39BB00E91477 /* Section */,
+			);
+			path = Toss;
+			sourceTree = "<group>";
+		};
+		02B1A2972CD510D600E91477 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				02B1A23B2CCB8A8F00E91477 /* StarRatingView.swift */,
+				02B1A23D2CCBA27700E91477 /* WriteStarRatingView.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -20,6 +20,7 @@ class ChartViewController: UIViewController {
         setUI()
         setStyle()
         setLayout()
+        configureNavigationBar()
     }
     
     private func setUI() {
@@ -41,6 +42,13 @@ class ChartViewController: UIViewController {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
+    
+    private func configureNavigationBar() {
+        title = "인기 차트"
+        
+        navigationItem.backButtonTitle = "인기 차트"
+    }
+    
 }
 
 extension ChartViewController: UITableViewDelegate { 
