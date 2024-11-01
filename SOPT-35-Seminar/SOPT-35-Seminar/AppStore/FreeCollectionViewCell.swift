@@ -11,8 +11,10 @@ import SnapKit
 
 class FreeCollectionViewCell: UICollectionViewCell {
     private let tableView = UITableView()
-    private var apps = App.sampleApps
+    private var apps: [App] = []
     private var startRanking: Int = 1
+    
+    weak var delegate: FreeCollectionViewCellDelegate?
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,4 +59,12 @@ extension FreeCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
         cell.configure(app: app, ranking: ranking)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.freeCollectionViewCell(self, didSelectAppAt: indexPath.row)
+    }
+}
+
+protocol FreeCollectionViewCellDelegate: AnyObject {
+    func freeCollectionViewCell(_ cell: FreeCollectionViewCell, didSelectAppAt index: Int)
 }

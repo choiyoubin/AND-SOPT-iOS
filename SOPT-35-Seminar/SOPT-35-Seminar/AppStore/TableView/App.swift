@@ -35,12 +35,12 @@ extension App {
             downloadState: .update
         ),
         App(
-            iconImage: .icon7,
+            iconImage: .tossIcon,
             ranking: 3,
-            title: "카카오톡",
-            subtitle: "무료 메시징과 통화",
-            category: "소셜 네트워킹",
-            downloadState: .installed
+            title: "토스",
+            subtitle: "간편 송금과 결제",
+            category: "금융",
+            downloadState: .redownload
         ),
         App(
             iconImage: .icon8,
@@ -83,12 +83,12 @@ extension App {
             downloadState: .installed
         ),
         App(
-            iconImage: .tossIcon,
+            iconImage: .icon7,
             ranking: 9,
-            title: "토스",
-            subtitle: "간편 송금과 결제",
-            category: "금융",
-            downloadState: .redownload
+            title: "카카오톡",
+            subtitle: "무료 메시징과 통화",
+            category: "소셜 네트워킹",
+            downloadState: .installed
         ),
         App(
             iconImage: .icon13,
@@ -133,6 +133,101 @@ extension App {
         App(
             iconImage: .icon18,
             ranking: 15,
+            title: "Outlook",
+            subtitle: "이메일과 캘린더",
+            category: "생산성",
+            downloadState: .download
+        ),
+        App(
+            iconImage: .icon19,
+            ranking: 16,
+            title: "Outlook",
+            subtitle: "이메일과 캘린더",
+            category: "생산성",
+            downloadState: .download
+        ),
+        App(
+            iconImage: .icon20,
+            ranking: 17,
+            title: "Outlook",
+            subtitle: "이메일과 캘린더",
+            category: "생산성",
+            downloadState: .download
+        ),
+        App(
+            iconImage: .icon21,
+            ranking: 18,
+            title: "Outlook",
+            subtitle: "이메일과 캘린더",
+            category: "생산성",
+            downloadState: .download
+        ),
+        App(
+            iconImage: .icon22,
+            ranking: 19,
+            title: "Outlook",
+            subtitle: "이메일과 캘린더",
+            category: "생산성",
+            downloadState: .download
+        ),
+        App(
+            iconImage: .icon23,
+            ranking: 20,
+            title: "Outlook",
+            subtitle: "이메일과 캘린더",
+            category: "생산성",
+            downloadState: .download
+        ),
+        App(
+            iconImage: .icon24,
+            ranking: 21,
+            title: "Outlook",
+            subtitle: "이메일과 캘린더",
+            category: "생산성",
+            downloadState: .download
+        ),
+        App(
+            iconImage: .icon25,
+            ranking: 22,
+            title: "Outlook",
+            subtitle: "이메일과 캘린더",
+            category: "생산성",
+            downloadState: .download
+        ),
+        App(
+            iconImage: .icon26,
+            ranking: 23,
+            title: "Outlook",
+            subtitle: "이메일과 캘린더",
+            category: "생산성",
+            downloadState: .download
+        ),App(
+            iconImage: .icon27,
+            ranking: 24,
+            title: "Outlook",
+            subtitle: "이메일과 캘린더",
+            category: "생산성",
+            downloadState: .download
+        ),
+        App(
+            iconImage: .icon28,
+            ranking: 26,
+            title: "Outlook",
+            subtitle: "이메일과 캘린더",
+            category: "생산성",
+            downloadState: .download
+        ),
+        App(
+            iconImage: .icon29,
+            ranking: 26,
+            title: "Outlook",
+            subtitle: "이메일과 캘린더",
+            category: "생산성",
+            downloadState: .download
+        ),
+        App(
+            iconImage: .icon30,
+            ranking: 27,
             title: "Outlook",
             subtitle: "이메일과 캘린더",
             category: "생산성",

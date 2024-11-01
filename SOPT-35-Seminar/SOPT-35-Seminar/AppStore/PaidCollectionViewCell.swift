@@ -45,9 +45,9 @@ class PaidCollectionViewCell: UICollectionViewCell {
 
 extension PaidCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return apps.count
     }
-        
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PaidChartCell.className, for: indexPath) as? PaidChartCell else {
             return UITableViewCell()

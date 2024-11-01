@@ -10,10 +10,10 @@ import SnapKit
 import Then
 
 class HeaderCell: UICollectionViewCell {
-    // MARK: - UIComponents
+    // MARK: - Properties
+    let titleButton = UIButton()
     
-    private let titleButton = UIButton()
-    
+    var onTitleButtonTap: (() -> Void)?
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
@@ -22,6 +22,7 @@ class HeaderCell: UICollectionViewCell {
         setStyle()
         setUI()
         setLayout()
+        setAction()
     }
     
     required init?(coder: NSCoder) {
@@ -63,7 +64,16 @@ class HeaderCell: UICollectionViewCell {
         }
     }
     
+    private func setAction(){
+        titleButton.addTarget(self, action: #selector(titleButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func titleButtonTapped() {
+            onTitleButtonTap?()
+    }
+    
     func bindTitle(title: String) {
         self.titleButton.setTitle(title, for: .normal)
     }
+    
 }

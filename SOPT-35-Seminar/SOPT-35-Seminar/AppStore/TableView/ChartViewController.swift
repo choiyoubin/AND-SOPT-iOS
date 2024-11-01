@@ -43,7 +43,17 @@ class ChartViewController: UIViewController {
     }
 }
 
-extension ChartViewController: UITableViewDelegate { }
+extension ChartViewController: UITableViewDelegate { 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+            
+        let selectedApp = appList[indexPath.row]
+        if selectedApp.title == "토스" {
+        let TossViewController = AppStoreViewController()
+        navigationController?.pushViewController(TossViewController, animated: true)
+        }
+    }
+}
 
 extension ChartViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

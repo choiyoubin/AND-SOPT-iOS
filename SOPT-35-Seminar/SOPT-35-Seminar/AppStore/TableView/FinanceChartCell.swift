@@ -33,9 +33,6 @@ class FinanceChartCell: UITableViewCell {
     private func setStyle() {
         iconImageView.do {
             $0.image = .icon5
-            $0.layer.borderWidth = 0.3
-            $0.layer.borderColor = UIColor.lightGray.cgColor
-            $0.layer.cornerRadius = 20
         }
         rankingLabel.do {
             $0.text = "1"

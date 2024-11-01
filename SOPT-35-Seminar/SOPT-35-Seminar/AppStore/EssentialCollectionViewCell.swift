@@ -45,9 +45,9 @@ class EssentialCollectionViewCell: UICollectionViewCell {
 
 extension EssentialCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return apps.count
     }
-        
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EssentialChartCell.className, for: indexPath) as? EssentialChartCell else {
             return UITableViewCell()

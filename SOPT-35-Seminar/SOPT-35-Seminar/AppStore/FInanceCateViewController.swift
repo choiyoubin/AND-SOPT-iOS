@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FInanceCateViewController: UIViewController {
+class FInanceCateViewController: UIViewController, UICollectionViewDelegate {
 
     private let mainModelItems: [MainModel] = MainModel.getData()
     private let titleLists: [String] = MainModel.getTitleLists()
@@ -35,10 +35,13 @@ class FInanceCateViewController: UIViewController {
         rootView.appCollectionView.register(FreeCollectionViewCell.self, forCellWithReuseIdentifier: FreeCollectionViewCell.className)
         rootView.appCollectionView.register(PaidCollectionViewCell.self, forCellWithReuseIdentifier: PaidCollectionViewCell.className)
         rootView.appCollectionView.register(EssentialCollectionViewCell.self, forCellWithReuseIdentifier: EssentialCollectionViewCell.className)
-        
         rootView.appCollectionView.register(HeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCell.className)
     }
-
+    
+    private func pushToChartViewController(for section: FinanceSection) {
+            let nextViewController = ChartViewController()
+            navigationController?.pushViewController(nextViewController, animated: true)
+        }
 }
 
 extension FInanceCateViewController: UICollectionViewDataSource {
@@ -77,26 +80,29 @@ extension FInanceCateViewController: UICollectionViewDataSource {
             
         case .essential:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EssentialCollectionViewCell.className, for: indexPath) as! EssentialCollectionViewCell
-            let startIndex = indexPath.item * 3
-            let endIndex = min(startIndex + 3, appLists.count)
+            let startIndex = 9 + indexPath.item * 3
+            let endIndex = min(startIndex + 3, 18)
             let appsForThisCell = Array(appLists[startIndex..<endIndex])
-            cell.configure(with: appsForThisCell, startRanking: startIndex + 1)
+            let startRanking = indexPath.item * 3 + 1
+            cell.configure(with: appsForThisCell, startRanking: startRanking)
             return cell
             
         case .paid:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PaidCollectionViewCell.className, for: indexPath) as! PaidCollectionViewCell
-            let startIndex = indexPath.item * 3
-            let endIndex = min(startIndex + 3, appLists.count)
+            let startIndex = 18 + indexPath.item * 3
+            let endIndex = min(startIndex + 3, 27)
             let appsForThisCell = Array(appLists[startIndex..<endIndex])
-            cell.configure(with: appsForThisCell, startRanking: startIndex + 1)
+            let startRanking = indexPath.item * 3 + 1
+            cell.configure(with: appsForThisCell, startRanking: startRanking)
             return cell
             
         case .free:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FreeCollectionViewCell.className, for: indexPath) as! FreeCollectionViewCell
             let startIndex = indexPath.item * 3
-            let endIndex = min(startIndex + 3, appLists.count)
+            let endIndex = min(startIndex + 3, 9)
             let appsForThisCell = Array(appLists[startIndex..<endIndex])
-            cell.configure(with: appsForThisCell, startRanking: startIndex + 1)
+            cell.configure(with: appsForThisCell, startRanking: indexPath.item * 3 + 1)
+            cell.delegate = self
             return cell
         }
     }
@@ -113,16 +119,36 @@ extension FInanceCateViewController: UICollectionViewDataSource {
                 headerView.bindTitle(title: "")
             case .essential:
                 headerView.bindTitle(title: titleLists[0])
+                headerView.onTitleButtonTap = { [weak self] in
+                    self?.pushToChartViewController(for: .essential)
+                }
             case .paid:
                 headerView.bindTitle(title: titleLists[1])
+                headerView.onTitleButtonTap = { [weak self] in
+                    self?.pushToChartViewController(for: .essential)
+                }
             case .free:
                 headerView.bindTitle(title: titleLists[2])
+                headerView.onTitleButtonTap = { [weak self] in
+                    self?.pushToChartViewController(for: .essential)
+                }
             }
             return headerView
         }
         return UICollectionReusableView()
     }
 }
-extension FInanceCateViewController: UICollectionViewDelegate {
-    
+
+// TODO: 인덱스 방식 수정
+extension FInanceCateViewController: FreeCollectionViewCellDelegate {
+    func freeCollectionViewCell(_ cell: FreeCollectionViewCell, didSelectAppAt index: Int) {
+        let startIndex = 0
+        let selectedAppIndex = startIndex + index
+        let selectedApp = appLists[selectedAppIndex]
+        print(selectedApp.title)
+        if selectedApp.title == "토스" {
+            let tossViewController = AppStoreViewController()
+            navigationController?.pushViewController(tossViewController, animated: true)
+        }
+    }
 }
