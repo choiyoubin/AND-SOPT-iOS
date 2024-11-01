@@ -115,6 +115,7 @@ class MainCell: UICollectionViewCell {
         mainImageView.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom).offset(10)
             $0.leading.trailing.equalToSuperview().inset(15)
+            $0.height.equalTo(250)
         }
         
         appLogoImageView.snp.makeConstraints {

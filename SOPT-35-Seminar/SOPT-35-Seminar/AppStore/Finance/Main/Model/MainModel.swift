@@ -22,43 +22,43 @@ extension MainModel {
     static func getData() -> [MainModel] {
         return [
             MainModel(
-                mainImage: .mainImage5,
+                mainImage: .mainImage6,
                 sort: "새로운 경험",
-                title: "메인 배너 1",
-                subTitle: "1 매인배너입니다.",
+                title: "Swift",
+                subTitle: "Swift 배너입니다.",
                 logoImage: .icon1,
-                miniTitle: "매인 배너 1",
-                info: "매인 배너 1입니다.",
+                miniTitle: "Swift",
+                info: "Swift 배너 1입니다.",
                 inApp: "앱 내 구입"
             ),
             MainModel(
-                mainImage: .mainImage5,
+                mainImage: .mainImage7,
                 sort: "추천",
-                title: "메인 배너 2",
-                subTitle: "2 매인배너입니다.",
+                title: "전화",
+                subTitle: "전화 배너입니다.",
                 logoImage: .icon2,
-                miniTitle: "매인 배너 2",
-                info: "매인 배너 2입니다.",
+                miniTitle: "전화",
+                info: "전화 배너 2입니다.",
                 inApp: "앱 내 구입"
             ),
             MainModel(
-                mainImage: .mainImage5,
+                mainImage: .mainImage8,
                 sort: "새로운 앱",
-                title: "메인 배너 3",
-                subTitle: "3 매인배너입니다.",
+                title: "메세지",
+                subTitle: "메세지 배너입니다.",
                 logoImage: .icon3,
-                miniTitle: "매인 배너 3",
-                info: "매인 배너 3입니다.",
+                miniTitle: "메세지",
+                info: "메세지 배너 3입니다.",
                 inApp: "앱 내 구입"
             ),
             MainModel(
-                mainImage: .mainImage5,
+                mainImage: .mainImage9,
                 sort: "추천",
-                title: "메인 배너 4",
-                subTitle: "4 매인배너입니다.",
+                title: "FaceTime",
+                subTitle: "FaceTime 배너입니다.",
                 logoImage: .icon4,
-                miniTitle: "매인 배너 4",
-                info: "매인 배너 4입니다.",
+                miniTitle: "FaceTime",
+                info: "FaceTime 배너 4입니다.",
                 inApp: "앱 내 구입"
             )
         ]
