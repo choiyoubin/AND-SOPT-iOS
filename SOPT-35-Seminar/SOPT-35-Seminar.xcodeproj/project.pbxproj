@@ -56,6 +56,7 @@
 		02B1A2822CD48B7C00E91477 /* PaidCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2812CD48B7C00E91477 /* PaidCollectionViewCell.swift */; };
 		02B1A2842CD48D1D00E91477 /* EssentialChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2832CD48D1D00E91477 /* EssentialChartCell.swift */; };
 		02B1A2862CD48EAB00E91477 /* EssentialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2852CD48EAB00E91477 /* EssentialCollectionViewCell.swift */; };
+		02B1A28A2CD4D61700E91477 /* PreviewImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2892CD4D61700E91477 /* PreviewImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +109,7 @@
 		02B1A2812CD48B7C00E91477 /* PaidCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidCollectionViewCell.swift; sourceTree = "<group>"; };
 		02B1A2832CD48D1D00E91477 /* EssentialChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialChartCell.swift; sourceTree = "<group>"; };
 		02B1A2852CD48EAB00E91477 /* EssentialCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialCollectionViewCell.swift; sourceTree = "<group>"; };
+		02B1A2892CD4D61700E91477 /* PreviewImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,20 +173,6 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		02B1A24D2CCCB99800E91477 /* TableView */ = {
-			isa = PBXGroup;
-			children = (
-				02B1A2452CCCB4D300E91477 /* ChartViewController.swift */,
-				02B1A2472CCCB59B00E91477 /* App.swift */,
-				02B1A2492CCCB64300E91477 /* DownloadState.swift */,
-				02B1A24B2CCCB81100E91477 /* FreeChartCell.swift */,
-				02B1A27B2CD473A600E91477 /* PaidChartCell.swift */,
-				02B1A27F2CD4842800E91477 /* FinanceChartCell.swift */,
-				02B1A2832CD48D1D00E91477 /* EssentialChartCell.swift */,
-			);
-			path = TableView;
-			sourceTree = "<group>";
-		};
 		02B1A2502CCCC60100E91477 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,7 +215,13 @@
 		02B1A26E2CD3DE5B00E91477 /* AppStore */ = {
 			isa = PBXGroup;
 			children = (
-				02B1A24D2CCCB99800E91477 /* TableView */,
+				02B1A2452CCCB4D300E91477 /* ChartViewController.swift */,
+				02B1A2472CCCB59B00E91477 /* App.swift */,
+				02B1A2492CCCB64300E91477 /* DownloadState.swift */,
+				02B1A24B2CCCB81100E91477 /* FreeChartCell.swift */,
+				02B1A27B2CD473A600E91477 /* PaidChartCell.swift */,
+				02B1A27F2CD4842800E91477 /* FinanceChartCell.swift */,
+				02B1A2832CD48D1D00E91477 /* EssentialChartCell.swift */,
 				02B1A26A2CD3D22700E91477 /* FInanceCateViewController.swift */,
 				02B1A26C2CD3D48E00E91477 /* CompositionalLayout.swift */,
 				02B1A26F2CD3DE9400E91477 /* FinanceSection.swift */,
@@ -238,6 +232,7 @@
 				02B1A27D2CD47ED400E91477 /* FreeCollectionViewCell.swift */,
 				02B1A2812CD48B7C00E91477 /* PaidCollectionViewCell.swift */,
 				02B1A2852CD48EAB00E91477 /* EssentialCollectionViewCell.swift */,
+				02B1A2892CD4D61700E91477 /* PreviewImageCell.swift */,
 			);
 			path = AppStore;
 			sourceTree = "<group>";
@@ -324,6 +319,7 @@
 			files = (
 				02B1A2122CB1019200E91477 /* ViewController.swift in Sources */,
 				02B1A2722CD3E14B00E91477 /* FInanceCateView.swift in Sources */,
+				02B1A28A2CD4D61700E91477 /* PreviewImageCell.swift in Sources */,
 				02B1A2742CD3E4D700E91477 /* MainCell.swift in Sources */,
 				02B1A2762CD3F45E00E91477 /* MainModel.swift in Sources */,
 				02B1A2612CCEA6CD00E91477 /* AppPreviewView.swift in Sources */,

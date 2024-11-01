@@ -12,7 +12,13 @@ import SnapKit
 class AppPreviewView: UIView {
 
     private let previewLabel = UILabel()
-    private let previewImageView = UIImageView()
+    private lazy var previewCollectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout()).then {
+        $0.backgroundColor = .clear
+        $0.showsHorizontalScrollIndicator = false
+        $0.isPagingEnabled = true
+    }
+    
+    private let previewImages: [UIImage] = [.appPreview1, .appPreview2, .appPreview3, .appPreview4, .appPreview5]
     
     override init(frame: CGRect){
         super .init(frame: frame)
@@ -22,6 +28,7 @@ class AppPreviewView: UIView {
         setStyle()
         setUI()
         setLayout()
+        setCollectionView()
     }
     
     required init?(coder: NSCoder) {
@@ -34,13 +41,10 @@ class AppPreviewView: UIView {
             $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
             $0.textColor = .black
         }
-        previewImageView.do {
-            $0.image = .tossPreview
-        }
     }
     
     func setUI() {
-        addSubviews(previewLabel, previewImageView)
+        addSubviews(previewLabel, previewCollectionView)
     }
     
     func setLayout() {
@@ -48,12 +52,50 @@ class AppPreviewView: UIView {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview().offset(20)
         }
-        previewImageView.snp.makeConstraints {
+        previewCollectionView.snp.makeConstraints {
             $0.top.equalTo(previewLabel.snp.bottom).offset(10)
-            $0.bottom.equalToSuperview()
-            $0.leading.equalTo(previewLabel)
-            $0.trailing.equalToSuperview().offset(-20)
-            $0.height.equalTo(previewImageView.snp.width).multipliedBy(16.0/9.0)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(300 * 16/9)
+            $0.bottom.lessThanOrEqualToSuperview()
         }
     }
+    
+    private func setCollectionView() {
+        previewCollectionView.do {
+            $0.delegate = self
+            $0.dataSource = self
+            $0.register(PreviewImageCell.self, forCellWithReuseIdentifier: PreviewImageCell.className)
+        }
+    }
+    
+    private func createLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(300), heightDimension: .absolute(300 * 16/9))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+    
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPaging
+        section.interGroupSpacing = 10
+        
+        return UICollectionViewCompositionalLayout(section: section)
+    }
 }
+
+extension AppPreviewView: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return previewImages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PreviewImageCell.className, for: indexPath) as? PreviewImageCell else {
+            return UICollectionViewCell()
+        }
+        cell.configure(with: previewImages[indexPath.item])
+        return cell
+    }
+}
+
+
