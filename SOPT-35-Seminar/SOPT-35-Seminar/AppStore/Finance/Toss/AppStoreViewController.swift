@@ -41,7 +41,6 @@ class AppStoreViewController: UIViewController {
         setStyle()
         setUI()
         setLayout()
-        
         setAddTarget()
     }
     
