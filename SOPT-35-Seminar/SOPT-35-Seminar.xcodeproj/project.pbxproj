@@ -42,12 +42,12 @@
 		02B1A2652CCFBA4900E91477 /* AppReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2642CCFBA4900E91477 /* AppReviewView.swift */; };
 		02B1A2672CCFDEDD00E91477 /* AppHelpfulReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2662CCFDEDD00E91477 /* AppHelpfulReviewView.swift */; };
 		02B1A2692CCFEACE00E91477 /* AppReviewWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2682CCFEACE00E91477 /* AppReviewWriteView.swift */; };
-		02B1A26B2CD3D22700E91477 /* FInanceCateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A26A2CD3D22700E91477 /* FInanceCateViewController.swift */; };
+		02B1A26B2CD3D22700E91477 /* FinanceCateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A26A2CD3D22700E91477 /* FinanceCateViewController.swift */; };
 		02B1A26D2CD3D48E00E91477 /* CompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A26C2CD3D48E00E91477 /* CompositionalLayout.swift */; };
 		02B1A2702CD3DE9400E91477 /* FinanceSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A26F2CD3DE9400E91477 /* FinanceSection.swift */; };
-		02B1A2722CD3E14B00E91477 /* FInanceCateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2712CD3E14B00E91477 /* FInanceCateView.swift */; };
+		02B1A2722CD3E14B00E91477 /* FinanceCateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2712CD3E14B00E91477 /* FinanceCateView.swift */; };
 		02B1A2742CD3E4D700E91477 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2732CD3E4D700E91477 /* MainCell.swift */; };
-		02B1A2762CD3F45E00E91477 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2752CD3F45E00E91477 /* MainModel.swift */; };
+		02B1A2762CD3F45E00E91477 /* BannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2752CD3F45E00E91477 /* BannerModel.swift */; };
 		02B1A2782CD3FA7D00E91477 /* ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2772CD3FA7D00E91477 /* ClassName.swift */; };
 		02B1A27A2CD3FBF100E91477 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A2792CD3FBF100E91477 /* HeaderCell.swift */; };
 		02B1A27C2CD473A600E91477 /* PaidChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A27B2CD473A600E91477 /* PaidChartCell.swift */; };
@@ -97,12 +97,12 @@
 		02B1A2642CCFBA4900E91477 /* AppReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReviewView.swift; sourceTree = "<group>"; };
 		02B1A2662CCFDEDD00E91477 /* AppHelpfulReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelpfulReviewView.swift; sourceTree = "<group>"; };
 		02B1A2682CCFEACE00E91477 /* AppReviewWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReviewWriteView.swift; sourceTree = "<group>"; };
-		02B1A26A2CD3D22700E91477 /* FInanceCateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FInanceCateViewController.swift; sourceTree = "<group>"; };
+		02B1A26A2CD3D22700E91477 /* FinanceCateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceCateViewController.swift; sourceTree = "<group>"; };
 		02B1A26C2CD3D48E00E91477 /* CompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayout.swift; sourceTree = "<group>"; };
 		02B1A26F2CD3DE9400E91477 /* FinanceSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceSection.swift; sourceTree = "<group>"; };
-		02B1A2712CD3E14B00E91477 /* FInanceCateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FInanceCateView.swift; sourceTree = "<group>"; };
+		02B1A2712CD3E14B00E91477 /* FinanceCateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceCateView.swift; sourceTree = "<group>"; };
 		02B1A2732CD3E4D700E91477 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
-		02B1A2752CD3F45E00E91477 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		02B1A2752CD3F45E00E91477 /* BannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModel.swift; sourceTree = "<group>"; };
 		02B1A2772CD3FA7D00E91477 /* ClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassName.swift; sourceTree = "<group>"; };
 		02B1A2792CD3FBF100E91477 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		02B1A27B2CD473A600E91477 /* PaidChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidChartCell.swift; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 		02B1A2902CD5101D00E91477 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				02B1A2752CD3F45E00E91477 /* MainModel.swift */,
+				02B1A2752CD3F45E00E91477 /* BannerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -252,8 +252,8 @@
 		02B1A2922CD5103000E91477 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				02B1A26A2CD3D22700E91477 /* FInanceCateViewController.swift */,
-				02B1A2712CD3E14B00E91477 /* FInanceCateView.swift */,
+				02B1A26A2CD3D22700E91477 /* FinanceCateViewController.swift */,
+				02B1A2712CD3E14B00E91477 /* FinanceCateView.swift */,
 				02B1A2902CD5101D00E91477 /* Model */,
 				02B1A2912CD5102200E91477 /* Cell */,
 			);
@@ -389,10 +389,10 @@
 			files = (
 				02B1A2122CB1019200E91477 /* ViewController.swift in Sources */,
 				02B1A28E2CD4EDCB00E91477 /* ReviewModel.swift in Sources */,
-				02B1A2722CD3E14B00E91477 /* FInanceCateView.swift in Sources */,
+				02B1A2722CD3E14B00E91477 /* FinanceCateView.swift in Sources */,
 				02B1A28A2CD4D61700E91477 /* PreviewImageCell.swift in Sources */,
 				02B1A2742CD3E4D700E91477 /* MainCell.swift in Sources */,
-				02B1A2762CD3F45E00E91477 /* MainModel.swift in Sources */,
+				02B1A2762CD3F45E00E91477 /* BannerModel.swift in Sources */,
 				02B1A2612CCEA6CD00E91477 /* AppPreviewView.swift in Sources */,
 				02B1A20E2CB1019200E91477 /* AppDelegate.swift in Sources */,
 				02B1A2822CD48B7C00E91477 /* PaidCollectionViewCell.swift in Sources */,
@@ -428,7 +428,7 @@
 				02B1A2282CB4286800E91477 /* UIView+.swift in Sources */,
 				02B1A24A2CCCB64300E91477 /* DownloadState.swift in Sources */,
 				02B1A2422CCBB68A00E91477 /* setImageTintColor.swift in Sources */,
-				02B1A26B2CD3D22700E91477 /* FInanceCateViewController.swift in Sources */,
+				02B1A26B2CD3D22700E91477 /* FinanceCateViewController.swift in Sources */,
 				02B1A24F2CCCC5FD00E91477 /* PhotoViewController.swift in Sources */,
 				02B1A2462CCCB4D300E91477 /* ChartViewController.swift in Sources */,
 				02B1A2582CCE3A0100E91477 /* AppDetailHeaderView.swift in Sources */,

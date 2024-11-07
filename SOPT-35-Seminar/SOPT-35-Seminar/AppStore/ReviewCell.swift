@@ -95,7 +95,7 @@ class ReviewCell: UICollectionViewCell {
             
         reviewInfoLabel.snp.makeConstraints {
             $0.top.equalTo(detailStarRatingView.snp.bottom).offset(10)
-            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
             $0.bottom.lessThanOrEqualToSuperview().offset(-20)
         }
     }

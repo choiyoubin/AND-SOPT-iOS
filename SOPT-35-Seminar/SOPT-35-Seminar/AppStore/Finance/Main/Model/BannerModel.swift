@@ -1,5 +1,5 @@
 //
-//  MainModel.swift
+//  BannerModel.swift
 //  SOPT-35-Seminar
 //
 //  Created by 최유빈 on 11/1/24.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-struct MainModel {
-    let mainImage: UIImage
+struct BannerModel {
+    let bannerImage: UIImage
     let sort: String
     let title: String
     let subTitle: String
@@ -18,11 +18,11 @@ struct MainModel {
     let inApp: String
 }
 
-extension MainModel {
-    static func getData() -> [MainModel] {
+extension BannerModel {
+    static func getData() -> [BannerModel] {
         return [
-            MainModel(
-                mainImage: .mainImage6,
+            BannerModel(
+                bannerImage: .mainImage6,
                 sort: "새로운 경험",
                 title: "Swift",
                 subTitle: "Swift 배너입니다.",
@@ -31,8 +31,8 @@ extension MainModel {
                 info: "Swift 배너 1입니다.",
                 inApp: "앱 내 구입"
             ),
-            MainModel(
-                mainImage: .mainImage7,
+            BannerModel(
+                bannerImage: .mainImage7,
                 sort: "추천",
                 title: "전화",
                 subTitle: "전화 배너입니다.",
@@ -41,8 +41,8 @@ extension MainModel {
                 info: "전화 배너 2입니다.",
                 inApp: "앱 내 구입"
             ),
-            MainModel(
-                mainImage: .mainImage8,
+            BannerModel(
+                bannerImage: .mainImage8,
                 sort: "새로운 앱",
                 title: "메세지",
                 subTitle: "메세지 배너입니다.",
@@ -51,8 +51,8 @@ extension MainModel {
                 info: "메세지 배너 3입니다.",
                 inApp: "앱 내 구입"
             ),
-            MainModel(
-                mainImage: .mainImage9,
+            BannerModel(
+                bannerImage: .mainImage9,
                 sort: "추천",
                 title: "FaceTime",
                 subTitle: "FaceTime 배너입니다.",

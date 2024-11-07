@@ -7,13 +7,13 @@
 
 import UIKit
 
-class FInanceCateViewController: UIViewController, UICollectionViewDelegate {
+class FinanceCateViewController: UIViewController, UICollectionViewDelegate {
 
-    private let mainModelItems: [MainModel] = MainModel.getData()
-    private let titleLists: [String] = MainModel.getTitleLists()
+    private let bannerModelItems: [BannerModel] = BannerModel.getData()
+    private let titleLists: [String] = BannerModel.getTitleLists()
     private let appLists = App.sampleApps
     
-    private let rootView = FInanceCateView()
+    private let rootView = FinanceCateView()
     
     override func loadView() {
         self.view = rootView
@@ -32,7 +32,7 @@ class FInanceCateViewController: UIViewController, UICollectionViewDelegate {
     }
     
     private func setRegister() {
-        rootView.appCollectionView.register(MainCell.self, forCellWithReuseIdentifier: MainCell.className)
+        rootView.appCollectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.className)
         rootView.appCollectionView.register(FreeCollectionViewCell.self, forCellWithReuseIdentifier: FreeCollectionViewCell.className)
         rootView.appCollectionView.register(PaidCollectionViewCell.self, forCellWithReuseIdentifier: PaidCollectionViewCell.className)
         rootView.appCollectionView.register(EssentialCollectionViewCell.self, forCellWithReuseIdentifier: EssentialCollectionViewCell.className)
@@ -51,7 +51,7 @@ class FInanceCateViewController: UIViewController, UICollectionViewDelegate {
     }
 }
 
-extension FInanceCateViewController: UICollectionViewDataSource {
+extension FinanceCateViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return FinanceSection.allCases.count
     }
@@ -71,10 +71,10 @@ extension FInanceCateViewController: UICollectionViewDataSource {
         
         switch section {
         case .main:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCell.className, for: indexPath) as! MainCell
-            let model = mainModelItems[indexPath.row]
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCell.className, for: indexPath) as! BannerCell
+            let model = bannerModelItems[indexPath.row]
             cell.bindData(
-                mainImage: model.mainImage,
+                bannerImage: model.bannerImage,
                 sort: model.sort,
                 title: model.title,
                 subTitle: model.subTitle,
@@ -144,7 +144,7 @@ extension FInanceCateViewController: UICollectionViewDataSource {
 }
 
 // TODO: 인덱스 방식 수정
-extension FInanceCateViewController: FreeCollectionViewCellDelegate {
+extension FinanceCateViewController: FreeCollectionViewCellDelegate {
     func freeCollectionViewCell(_ cell: FreeCollectionViewCell, didSelectAppAt index: Int) {
         let startIndex = 0
         let selectedAppIndex = startIndex + index

@@ -48,7 +48,7 @@ class TossEntryViewController: UIViewController {
     }
     
     @objc func tossEntryTap() {
-        let nextViewController = FInanceCateViewController()
+        let nextViewController = FinanceCateViewController()
         
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }

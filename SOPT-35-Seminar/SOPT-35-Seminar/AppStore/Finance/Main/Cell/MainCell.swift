@@ -1,5 +1,5 @@
 //
-//  MainCell.swift
+//  BannerCell.swift
 //  SOPT-35-Seminar
 //
 //  Created by 최유빈 on 11/1/24.
@@ -9,14 +9,14 @@ import UIKit
 import Then
 import SnapKit
 
-class MainCell: UICollectionViewCell {
+class BannerCell: UICollectionViewCell {
     
     private let sortLabel = UILabel()
     private let appTitleLabel = UILabel()
     private let appSubTitleLabel = UILabel()
     private let appMiniTitleLabel = UILabel()
     private let appInfoLabel = UILabel()
-    private let mainImageView = UIImageView()
+    private let bannerImageView = UIImageView()
     private let appLogoImageView = UIImageView()
     private let appDownloadButton = UIButton()
     private let inAppPurchaseLabel = UILabel()
@@ -80,7 +80,7 @@ class MainCell: UICollectionViewCell {
             $0.textColor = .gray
             $0.textAlignment = .center
         }
-        mainImageView.do {
+        bannerImageView.do {
             $0.image = .mainImage1
         }
         appLogoImageView.do {
@@ -91,7 +91,7 @@ class MainCell: UICollectionViewCell {
     
     func setUI(){
         headerView.addSubviews(sortLabel, appTitleLabel, appSubTitleLabel)
-        contentView.addSubviews(headerView, mainImageView, appLogoImageView, appMiniTitleLabel, appInfoLabel, appDownloadButton, inAppPurchaseLabel)
+        contentView.addSubviews(headerView, bannerImageView, appLogoImageView, appMiniTitleLabel, appInfoLabel, appDownloadButton, inAppPurchaseLabel)
     }
     
     func setLayout() {
@@ -112,15 +112,15 @@ class MainCell: UICollectionViewCell {
             $0.leading.equalToSuperview()
         }
         
-        mainImageView.snp.makeConstraints {
+        bannerImageView.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom).offset(10)
             $0.leading.trailing.equalToSuperview().inset(15)
             $0.height.equalTo(250)
         }
         
         appLogoImageView.snp.makeConstraints {
-            $0.leading.equalTo(mainImageView).offset(10)
-            $0.bottom.equalTo(mainImageView.snp.bottom).offset(-10)
+            $0.leading.equalTo(bannerImageView).offset(10)
+            $0.bottom.equalTo(bannerImageView.snp.bottom).offset(-10)
             $0.size.equalTo(40)
         }
         appMiniTitleLabel.snp.makeConstraints {
@@ -132,7 +132,7 @@ class MainCell: UICollectionViewCell {
             $0.top.equalTo(appLogoImageView.snp.centerY)
         }
         appDownloadButton.snp.makeConstraints {
-            $0.trailing.equalTo(mainImageView).offset(-10)
+            $0.trailing.equalTo(bannerImageView).offset(-10)
             $0.top.equalTo(appMiniTitleLabel.snp.top)
         }
         inAppPurchaseLabel.snp.makeConstraints {
@@ -141,8 +141,8 @@ class MainCell: UICollectionViewCell {
         }
     }
     
-    func bindData(mainImage: UIImage, sort: String, title: String, subTitle: String, logoImage: UIImage, miniTitle: String, info: String, inApp: String) {
-        self.mainImageView.image = mainImage
+    func bindData(bannerImage: UIImage, sort: String, title: String, subTitle: String, logoImage: UIImage, miniTitle: String, info: String, inApp: String) {
+        self.bannerImageView.image = bannerImage
         self.sortLabel.text = sort
         self.appTitleLabel.text = title
         self.appSubTitleLabel.text = subTitle

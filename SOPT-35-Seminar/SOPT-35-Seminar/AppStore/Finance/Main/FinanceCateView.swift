@@ -9,7 +9,7 @@ import UIKit
 import Then
 import SnapKit
 
-class FInanceCateView: UIView {
+class FinanceCateView: UIView {
 
     let layout = CompositionalLayout.createLayout()
     lazy var appCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
